@@ -16,9 +16,12 @@ bindings for Sublime Text 2. To install these bindings as your default key
 bindings, check out this repository and copy the file to the appropriate
 directory for your platform, as shown below:
 
-* Linux: `~/.config/sublime-text-2/Packages/User/Default\ \(Linux\).sublime-keymap`
+* Linux: `~/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap`
 * Mac: `/Users/bmc/Library/Application Support/Sublime Text 2/Packages/User`
-* Windows: See the Sublime Text 2 documentation.
+* Windows: `C:\Users\username\AppData\Roaming\Sublime Text 2\Packages\User\Default (Windows).sublime-keymap` 
+  (**NOTE**: That's the path on *my* Windows 7 machine, with `username` 
+  replaced by my user name, and using the non-portable version of 
+  Sublime Text 2. YMMV.)
 
 For instance, on Linux:
 
