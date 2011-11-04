@@ -14,6 +14,7 @@
   { "keys": ["ctrl+h"], "command": "left_delete"},
   { "keys": ["ctrl+d"], "command": "right_delete"},
   { "keys": ["alt+d"], "command": "delete_word", "args": { "forward": true } },
+  { "keys": ["ctrl+backspace"], "command": "delete_word", "args": { "forward": false } },
   { "keys": ["ctrl+/"], "command": "undo"},
   { "keys": ["alt+b"], "command": "move", "args": {"by": "words", "forward": false} },
   { "keys": ["alt+f"], "command": "move", "args": {"by": "word_ends", "forward": true} },
