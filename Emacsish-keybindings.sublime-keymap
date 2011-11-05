@@ -22,6 +22,7 @@
   { "keys": ["ctrl+s"], "command": "show_panel", "args": {"panel": "find"} },
   { "keys": ["ctrl+r"], "command": "show_panel", "args": {"panel": "replace"} },
   { "keys": ["alt+s"], "command": "save" },
-  { "keys": ["ctrl+k"], "command": "run_macro_file", "args": {"file": "Packages/Default/Delete to Hard EOL.sublime-macro"} }
+  { "keys": ["ctrl+k"], "command": "run_macro_file", "args": {"file": "Packages/Default/Delete to Hard EOL.sublime-macro"} },
+  { "keys": ["ctrl+x"], "command": "none" }
 ]
 
