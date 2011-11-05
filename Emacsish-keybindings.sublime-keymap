@@ -19,10 +19,13 @@
   { "keys": ["alt+b"], "command": "move", "args": {"by": "words", "forward": false} },
   { "keys": ["alt+f"], "command": "move", "args": {"by": "word_ends", "forward": true} },
   { "keys": ["ctrl+o"], "command": "insert", "args": {"characters": "\n"} },
-  { "keys": ["ctrl+s"], "command": "show_panel", "args": {"panel": "find"} },
+  { "keys": ["ctrl+s"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse":false} },
   { "keys": ["ctrl+r"], "command": "show_panel", "args": {"panel": "replace"} },
   { "keys": ["alt+s"], "command": "save" },
   { "keys": ["ctrl+k"], "command": "run_macro_file", "args": {"file": "Packages/Default/Delete to Hard EOL.sublime-macro"} },
-  { "keys": ["ctrl+x"], "command": "none" }
+  { "keys": ["ctrl+x"], "command": "none" },
+  // Can't seem to rebind ctrl-I to TAB. So, to avoid problems, just map it to
+  // nothing.
+  { "keys": ["ctrl+i"], "command": "none" }
 ]
 
