@@ -26,6 +26,9 @@
   { "keys": ["ctrl+x"], "command": "none" },
   // Can't seem to rebind ctrl-I to TAB. So, to avoid problems, just map it to
   // nothing.
-  { "keys": ["ctrl+i"], "command": "none" }
+  { "keys": ["ctrl+i"], "command": "none" },
+  { "keys": ["alt+u"], "command": "upper_case" },
+  { "keys": ["alt+l"], "command": "lower_case" },
+  { "keys": ["alt+c"], "command": "title_case" }
 ]
 
