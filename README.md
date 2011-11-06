@@ -17,7 +17,7 @@ bindings, check out this repository and copy the file to the appropriate
 directory for your platform, as shown below:
 
 * Linux: `~/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap`
-* Mac: `/Users/bmc/Library/Application Support/Sublime Text 2/Packages/User`
+* Mac: `/Users/bmc/Library/Application Support/Sublime Text 2/Packages/User\Default (OSX).sublime-keymap`
 * Windows: `C:\Users\username\AppData\Roaming\Sublime Text 2\Packages\User\Default (Windows).sublime-keymap` 
   (**NOTE**: That's the path on *my* Windows 7 machine, with `username` 
   replaced by my user name, and using the non-portable version of 
