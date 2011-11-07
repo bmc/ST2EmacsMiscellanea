@@ -43,9 +43,9 @@ For instance, on Linux:
 
 ### Non-Standard Emacs Mappings
 
-* *Incremental Search* is bound to *Ctrl-s*, not "regular" search.
+* *Incremental Search* (not "regular search" is bound to *Ctrl-s*.
 * *Ctrl-r* is bound to *Reverse Incremental Search*.
-* *Alt-R* (*Command-r* on the Mac) is bound to *Search and Replace*.
+* *Alt-r* (*Command-r* on the Mac) is bound to *Search and Replace*.
 * *Alt-s* (*Command-s* on the Mac) is bound to *Save*, as well, for consistency
   with TextMate and other Mac applications. (You can comment this out, or 
   rebind it.)
@@ -56,7 +56,7 @@ For instance, on Linux:
 * *Ctrl-Alt-o* is bound to *Open File*, as is the more standard Emacs
   *Ctrl-x Ctrl-f* key sequence.
 * Pressing *Ctrl-s* repeatedly does not continue the incremental search.
-  Use F3 for that. I'm sure there's a way to have *Ctrl-Alt-S* do what I want,
+  Use F3 for that. There may be a way to have *Ctrl-s* do what I want,
   perhaps by using contexts. I'm not sure how to do that yet.
 
 ### Unexpected Oddities
