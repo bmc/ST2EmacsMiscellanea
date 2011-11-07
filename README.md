@@ -50,8 +50,8 @@ For instance, on Linux:
   with TextMate and other Mac applications. (You can comment this out, or 
   rebind it.)
 * *Ctrl-/* is bound to *Undo*, mostly because that's what I'm used to using.
-* *Alt-z (*Command-z* on the Mac) is also bound to *Undo*, for consistency with
-  TextMate and other Mac applications.
+* *Alt-z* (*Command-z* on the Mac) is also bound to *Undo*, for consistency
+  with TextMate and other Mac applications.
 * *Ctrl-Alt-n* is bound to *New File*.
 * *Ctrl-Alt-o* is bound to *Open File*, as is the more standard Emacs
   *Ctrl-x Ctrl-f* key sequence.
