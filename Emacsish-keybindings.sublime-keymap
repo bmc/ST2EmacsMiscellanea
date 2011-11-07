@@ -8,27 +8,60 @@
   { "keys": ["ctrl+f"], "command": "move", "args": {"by": "characters", "forward": true} },
   { "keys": ["ctrl+p"], "command": "move", "args": {"by": "lines", "forward": false} },
   { "keys": ["ctrl+n"], "command": "move", "args": {"by": "lines", "forward": true} },
-  { "keys": ["ctrl+w"], "command": "cut" },
-  { "keys": ["alt+w"], "command": "copy" },
-  { "keys": ["ctrl+y"], "command": "paste" },
   { "keys": ["ctrl+h"], "command": "left_delete"},
   { "keys": ["ctrl+d"], "command": "right_delete"},
   { "keys": ["alt+d"], "command": "delete_word", "args": { "forward": true } },
   { "keys": ["ctrl+backspace"], "command": "delete_word", "args": { "forward": false } },
   { "keys": ["ctrl+/"], "command": "undo"},
+  { "keys": ["alt-z"], "command": "undo"},
   { "keys": ["alt+b"], "command": "move", "args": {"by": "words", "forward": false} },
   { "keys": ["alt+f"], "command": "move", "args": {"by": "word_ends", "forward": true} },
   { "keys": ["ctrl+o"], "command": "insert", "args": {"characters": "\n"} },
-  { "keys": ["ctrl+s"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse":false} },
-  { "keys": ["ctrl+r"], "command": "show_panel", "args": {"panel": "replace"} },
-  { "keys": ["alt+s"], "command": "save" },
-  { "keys": ["ctrl+k"], "command": "run_macro_file", "args": {"file": "Packages/Default/Delete to Hard EOL.sublime-macro"} },
-  { "keys": ["ctrl+x"], "command": "none" },
+  //{ "keys": ["ctrl+x"], "command": "none" },
   // Can't seem to rebind ctrl-I to TAB. So, to avoid problems, just map it to
   // nothing.
   { "keys": ["ctrl+i"], "command": "none" },
   { "keys": ["alt+u"], "command": "upper_case" },
   { "keys": ["alt+l"], "command": "lower_case" },
-  { "keys": ["alt+c"], "command": "title_case" }
+  { "keys": ["alt+c"], "command": "title_case" },
+  { "keys": ["alt+o"], "command": "toggle_overwrite" },
+  { "keys": ["ctrl+alt+n"], "command": "new_file" },
+  { "keys": ["ctrl+alt+o"], "command": "prompt_open_file" },
+
+  // ----------------------------------------------------------------------
+  // Emacs Kill Ring Bindings
+  //
+  // Use these bindings with https://github.com/stiang/EmacsKillRing
+  { "keys": ["ctrl+w"], "command": "expand_selection", "args": {"to": "word"} },
+  { "keys": ["ctrl+k"], "command": "emacs_kill_line"},
+  { "keys": ["ctrl+y"], "command": "paste" },
+  { "keys": ["ctrl+space"], "command": "emacs_set_mark" },
+  { "keys": ["ctrl+w"], "command": "emacs_kill_to_mark" },
+  { "keys": ["alt+w"], "command": "emacs_kill_ring_save" },
+  { "keys": ["ctrl+g"], "command": "cancel_mark" },
+
+  // Use these bindings if you don't want to install
+  // https://github.com/stiang/EmacsKillRing
+  //{ "keys": ["ctrl+w"], "command": "cut" },
+  //{ "keys": ["alt+w"], "command": "copy" },
+  //{ "keys": ["ctrl+y"], "command": "paste" }
+  //{ "keys": ["ctrl+k"], "command": "run_macro_file", "args": {"file": "Packages/Default/Delete to Hard EOL.sublime-macro"} },
+
+  // ----------------------------------------------------------------------
+  // Save Bindings
+  //
+  // Ctrl-X Ctrl-S is bound to Save. So is *Alt-S*.
+  // Note that Alt-S is also bound to Save.
+  { "keys": ["ctrl+x", "ctrl+s"], "command": "save"},
+  { "keys": ["alt+s"], "command": "save" },
+
+  // ----------------------------------------------------------------------
+  // Search Bindings
+  //
+
+  { "keys": ["ctrl+r"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse":true} },
+  { "keys": ["ctrl+s"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse":false} },
+  { "keys": ["alt+r"], "command": "show_panel", "args": {"panel": "replace"} }
+
 ]
 
