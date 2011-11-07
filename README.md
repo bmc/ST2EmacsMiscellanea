@@ -43,7 +43,7 @@ For instance, on Linux:
 
 ### Non-Standard Emacs Mappings
 
-* *Incremental Search* (not "regular search" is bound to *Ctrl-s*.
+* *Incremental Search* (not "regular search") is bound to *Ctrl-s*.
 * *Ctrl-r* is bound to *Reverse Incremental Search*.
 * *Alt-r* (*Command-r* on the Mac) is bound to *Search and Replace*.
 * *Alt-s* (*Command-s* on the Mac) is bound to *Save*, as well, for consistency
