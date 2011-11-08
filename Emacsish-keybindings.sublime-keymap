@@ -61,7 +61,18 @@
 
   { "keys": ["ctrl+r"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse":true} },
   { "keys": ["ctrl+s"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse":false} },
-  { "keys": ["alt+r"], "command": "show_panel", "args": {"panel": "replace"} }
+  { "keys": ["alt+r"], "command": "show_panel", "args": {"panel": "replace"} },
+  
+  // ----------------------------------------------------------------------
+  // Auto-complete bindings
+  
+  { "keys": ["alt+space"], "command": "auto_complete" },
+  { "keys": ["atl+space"], "command": "replace_completion_with_auto_complete", "context":
+    [
+      { "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
+      { "key": "setting.tab_completion", "operator": "equal", "operand": true }
+    ]
+  }
 
 ]
 
