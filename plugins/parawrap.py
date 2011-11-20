@@ -15,6 +15,8 @@ class WrapParagraphCommand(paragraph.WrapLinesCommand):
     it invokes the stock SublimeText "wrap_lines" command.
 
     Bind "wrap_paragraph" to a key to use this command.
+
+    See related bug report: http://sublimetext.userecho.com/topic/82731-/
     """
     def run(self, edit, width=0):
         if width == 0 and self.view.settings().get("wrap_paragraph"):
