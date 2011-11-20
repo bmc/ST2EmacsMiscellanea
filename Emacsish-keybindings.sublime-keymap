@@ -32,6 +32,7 @@
   // Emacs Kill Ring Bindings
   //
   // Use these bindings with https://github.com/stiang/EmacsKillRing
+
   { "keys": ["ctrl+w"], "command": "expand_selection", "args": {"to": "word"} },
   { "keys": ["ctrl+k"], "command": "emacs_kill_line"},
   { "keys": ["ctrl+y"], "command": "paste" },
@@ -52,12 +53,12 @@
   //
   // Ctrl-X Ctrl-S is bound to Save. So is *Alt-S*.
   // Note that Alt-S is also bound to Save.
+
   { "keys": ["ctrl+x", "ctrl+s"], "command": "save"},
   { "keys": ["alt+s"], "command": "save" },
 
   // ----------------------------------------------------------------------
   // Search Bindings
-  //
 
   { "keys": ["ctrl+r"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse":true} },
   { "keys": ["ctrl+s"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse":false} },
@@ -72,7 +73,12 @@
       { "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
       { "key": "setting.tab_completion", "operator": "equal", "operand": true }
     ]
-  }
+  },
+
+  // ----------------------------------------------------------------------
+  // Build bindings. Ctrl-B is being used for backward-char. Need something
+  // else to fire off a build.
+  { "keys": ["shift+alt+b"], "command": "build"}
 
 ]
 
