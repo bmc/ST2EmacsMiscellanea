@@ -28,6 +28,12 @@
   { "keys": ["ctrl+alt+n"], "command": "new_file" },
   { "keys": ["ctrl+alt+o"], "command": "prompt_open_file" },
 
+  // Paragraph wrap: Use my local hack, which works better.
+  // Also, map "Ctrl-Q", for consistency with TextMate.
+  { "keys": ["ctrl+q"], "command": "wrap_paragraph"},
+  { "keys": ["alt+q"], "command": "wrap_paragraph"},
+  { "keys": ["ctrl+alt+q"], "command": "exit"},
+
   // ----------------------------------------------------------------------
   // Emacs Kill Ring Bindings
   //
