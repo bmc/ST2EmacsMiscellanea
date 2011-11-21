@@ -5,6 +5,8 @@
 This repo contains various hacks (keymaps, etc.) for the [Sublime Text 2][]
 text editor.
 
+[Sublime Text 2]: http://www.sublimetext.com/2
+
 ## Warning
 
 I use these files myself, but *caveat user*. If you use them, and they screw you all to hell, it's not my fault.
