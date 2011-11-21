@@ -84,7 +84,12 @@
   // ----------------------------------------------------------------------
   // Build bindings. Ctrl-B is being used for backward-char. Need something
   // else to fire off a build.
-  { "keys": ["shift+alt+b"], "command": "build"}
+  { "keys": ["shift+alt+b"], "command": "build"},
 
+  // ----------------------------------------------------------------------
+  // Additional rebindings
+
+  // Ctrl-P is used for line-up. Map Alt-G to "goto-anything".
+  { "keys": ["alt+g"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} }
 ]
 
