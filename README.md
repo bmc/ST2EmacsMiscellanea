@@ -43,7 +43,7 @@ For instance, on Linux:
 
     $ git clone https://github.com/bmc/sublime-text-hacks
     $ cd sublime-text-hacks
-    $ cp Emacsish-keybindings.sublime-keymap ~/.config/sublime-text-2/Packages/User/Default\ \(Linux\).sublime-keymap
+    $ cp keymaps/Emacsish-keybindings.sublime-keymap ~/.config/sublime-text-2/Packages/User/Default\ \(Linux\).sublime-keymap
 
 #### Non-Standard Emacs Mappings
 
@@ -62,7 +62,7 @@ For instance, on Linux:
 * Pressing *Ctrl-s* repeatedly does not continue the incremental search.
   Use F3 for that. There may be a way to have *Ctrl-s* do what I want,
   perhaps by using contexts. I'm not sure how to do that yet.
-* *ctrl-q* maps to `wrap_paragraph` (see the `parawrap` plugin in this repo),
+* *Ctrl-q* maps to `wrap_paragraph` (see the `parawrap` plugin in this repo),
   for consistency with TextMate key bindings. *Alt-q* also maps to
   `wrap_paragraph`.
 * Because I rebound *Ctrl-Q*, these bindings map *Ctrl-Alt-q* to `exit`.
@@ -75,21 +75,26 @@ for *Open File*, *New File* and *Save File*.
 
 ## Plugins
 
-### `parawrap.py`
+### parawrap
 
 The stock Sublime Text 2 `wrap_width` setting controls both on-screen wrapping
 and the column at which the `wrap_lines` command folds lines. Those two
-settings should be different; otherwise, things don't look right on the screen.
-`parawrap.py` contains a wrapper command called `wrap_paragraph` that looks for
-a `wrap_paragraph` setting. If that setting is found, its (integer) value is
-used to override `wrap_width`. Then, the `wrap_paragraph` command invokes the
-stock `wrap_lines` command to wrap the paragraph.
+settings should be different; otherwise, paragraphs can wrap strangely on the
+screen. `parawrap.py` contains a wrapper command called `wrap_paragraph` that
+looks for a `wrap_paragraph` setting. If that setting is found, its (integer)
+value is used to override `wrap_width`. Then, the `wrap_paragraph` command
+invokes the stock `wrap_lines` command to wrap the paragraph.
 
 See related bug report <http://sublimetext.userecho.com/topic/82731-/>
 
 #### Installation
 
-Copy `paragraph.py` to your Sublime `Packages/User` directory.
+Copy `plugins/paragraph.py` to your Sublime `Packages/User` directory. For
+instance, on Linux:
+
+    $ git clone https://github.com/bmc/sublime-text-hacks
+    $ cd sublime-text-hacks
+    $ cp plugins/parawrap.py ~/.config/sublime-text-2/Packages/User/Default\ \(Linux\).sublime-keymap
 
 #### Settings
 
