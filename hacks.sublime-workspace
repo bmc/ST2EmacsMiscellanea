@@ -27,15 +27,7 @@
 			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 4110,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "plugins/parawrap.py",
-			"settings":
-			{
-				"buffer_size": 1030,
+				"buffer_size": 4388,
 				"line_ending": "Unix"
 			}
 		},
@@ -44,6 +36,14 @@
 			"settings":
 			{
 				"buffer_size": 2630,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "plugins/parawrap.py",
+			"settings":
+			{
+				"buffer_size": 1030,
 				"line_ending": "Unix"
 			}
 		}
@@ -177,15 +177,15 @@
 					"file": "README.md",
 					"settings":
 					{
-						"buffer_size": 4110,
+						"buffer_size": 4388,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4110,
-								4110
+								3153,
+								3153
 							]
 						],
 						"settings":
@@ -195,13 +195,46 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 812.0,
+						"translation.y": 917.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "/home/bmc/.config/sublime-text-2/Packages/Default/Global.sublime-settings",
+					"settings":
+					{
+						"buffer_size": 2630,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								711,
+								711
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
 					"file": "plugins/parawrap.py",
 					"settings":
 					{
@@ -221,33 +254,6 @@
 							"syntax": "Packages/Python/Python.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/bmc/.config/sublime-text-2/Packages/Default/Global.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 2630,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								711,
-								711
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -275,11 +281,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":

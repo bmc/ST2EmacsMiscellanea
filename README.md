@@ -115,3 +115,7 @@ Sample settings:
 Bind `wrap_paragraph` to a key:
 
     { "keys": ["alt+q"], "command": "wrap_paragraph"},
+
+## Other Repos
+
+Jim Powers also has some Sublime hacks: <https://github.com/corruptmemory/sublime-text>
