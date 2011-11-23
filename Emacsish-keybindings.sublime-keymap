@@ -24,6 +24,7 @@
   { "keys": ["alt+u"], "command": "upper_case" },
   { "keys": ["alt+l"], "command": "lower_case" },
   { "keys": ["alt+c"], "command": "title_case" },
+  { "keys": ["super+c"], "command": "title_case" },
   { "keys": ["alt+o"], "command": "toggle_overwrite" },
   { "keys": ["ctrl+alt+n"], "command": "new_file" },
   { "keys": ["ctrl+alt+o"], "command": "prompt_open_file" },
@@ -38,6 +39,7 @@
   { "keys": ["ctrl+space"], "command": "emacs_set_mark" },
   { "keys": ["ctrl+w"], "command": "emacs_kill_to_mark" },
   { "keys": ["alt+w"], "command": "emacs_kill_ring_save" },
+  { "keys": ["command+w"], "command": "emacs_kill_ring_save" },
   { "keys": ["ctrl+g"], "command": "cancel_mark" },
 
   // Use these bindings if you don't want to install
@@ -61,7 +63,8 @@
 
   { "keys": ["ctrl+r"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse":true} },
   { "keys": ["ctrl+s"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse":false} },
-  { "keys": ["alt+r"], "command": "show_panel", "args": {"panel": "replace"} }
+  { "keys": ["alt+r"], "command": "show_panel", "args": {"panel": "replace"} },
+  { "keys": ["super+r"], "command": "show_panel", "args": {"panel": "replace"} }
 
 ]
 
