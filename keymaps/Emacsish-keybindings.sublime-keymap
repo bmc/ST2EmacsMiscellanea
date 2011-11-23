@@ -71,7 +71,7 @@
   { "keys": ["ctrl+r"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse":true} },
   { "keys": ["ctrl+s"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse":false} },
   { "keys": ["alt+r"], "command": "show_panel", "args": {"panel": "replace"} },
-  { "keys": ["super+r"], "command": "show_panel", "args": {"panel": "replace"} }
+  { "keys": ["super+r"], "command": "show_panel", "args": {"panel": "replace"} },
   
   // ----------------------------------------------------------------------
   // Auto-complete bindings
