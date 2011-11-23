@@ -5,16 +5,20 @@
 This repo contains various hacks (keymaps, etc.) for the [Sublime Text 2][]
 text editor.
 
+[Sublime Text 2]: http://www.sublimetext.com/2
+
 ## Warning
 
 I use these files myself, but *caveat user*. If you use them, and they screw you all to hell, it's not my fault.
 
-## Emacs-ish Keybindings
+## Key Bindings
+
+### Emacs-ish Key Bindings
 
 The file `Emacsish-keybindings.sublime-keymap` provides various Emacs-like key
 bindings for Sublime Text 2.
 
-### Prerequisites
+#### Prerequisites
 
 By default, the key bindings use Stian Grytøyr's Emacs-style *kill ring*
 implementation, available at <https://github.com/stiang/EmacsKillRing>. If you
@@ -22,7 +26,7 @@ prefer the more standard, Windows-like cut-and-paste semantics, see the
 `Emacsish-keybindings.sublime-keymap` file. You can comment out the kill ring
 mappings and uncomment the cut-and-paste mappings, instead.
 
-### Installation
+#### Installation
 
 To install these bindings as your default key bindings, check out this
 repository and copy the file to the appropriate directory for your platform, as
@@ -39,9 +43,9 @@ For instance, on Linux:
 
     $ git clone https://github.com/bmc/sublime-text-hacks
     $ cd sublime-text-hacks
-    $ cp Emacsish-keybindings.sublime-keymap ~/.config/sublime-text-2/Packages/User/Default\ \(Linux\).sublime-keymap
+    $ cp keymaps/Emacsish-keybindings.sublime-keymap ~/.config/sublime-text-2/Packages/User/Default\ \(Linux\).sublime-keymap
 
-### Non-Standard Emacs Mappings
+#### Non-Standard Emacs Mappings
 
 * *Incremental Search* (not "regular search") is bound to *Ctrl-s*.
 * *Ctrl-r* is bound to *Reverse Incremental Search*.
@@ -58,11 +62,60 @@ For instance, on Linux:
 * Pressing *Ctrl-s* repeatedly does not continue the incremental search.
   Use F3 for that. There may be a way to have *Ctrl-s* do what I want,
   perhaps by using contexts. I'm not sure how to do that yet.
+* *Ctrl-q* maps to `wrap_paragraph` (see the `parawrap` plugin in this repo),
+  for consistency with TextMate key bindings. *Alt-q* also maps to
+  `wrap_paragraph`.
+* Because I rebound *Ctrl-Q*, these bindings map *Ctrl-Alt-q* to `exit`.
 
-### Unexpected Oddities
+#### Unexpected Oddities
 
 With these bindings in place, the Sublime Text 2 menus may not be correct. For
 instance, the file menu will still show the standard Sublime Text 2 bindings
 for *Open File*, *New File* and *Save File*.
 
-[Sublime Text 2]: http://www.sublimetext.com/2
+## Plugins
+
+### parawrap
+
+The stock Sublime Text 2 `wrap_width` setting controls both on-screen wrapping
+and the column at which the `wrap_lines` command folds lines. Those two
+settings should be different; otherwise, paragraphs can wrap strangely on the
+screen. `parawrap.py` contains a wrapper command called `wrap_paragraph` that
+looks for a `wrap_paragraph` setting. If that setting is found, its (integer)
+value is used to override `wrap_width`. Then, the `wrap_paragraph` command
+invokes the stock `wrap_lines` command to wrap the paragraph.
+
+See related bug report <http://sublimetext.userecho.com/topic/82731-/>
+
+#### Installation
+
+Copy `plugins/paragraph.py` to your Sublime `Packages/User` directory. For
+instance, on Linux:
+
+    $ git clone https://github.com/bmc/sublime-text-hacks
+    $ cd sublime-text-hacks
+    $ cp plugins/parawrap.py ~/.config/sublime-text-2/Packages/User/Default\ \(Linux\).sublime-keymap
+
+#### Settings
+
+Sample settings:
+
+    {
+        // On screen, words wrap at 80.
+        "wrap_width": 80,
+
+        // When wrap_paragraph is invoke, words wrap at 79.
+        "wrap_paragraph": 79,
+
+        "rulers": [80]
+    }
+
+#### Key bindings
+
+Bind `wrap_paragraph` to a key:
+
+    { "keys": ["alt+q"], "command": "wrap_paragraph"},
+
+## Other Repos
+
+Jim Powers also has some Sublime hacks: <https://github.com/corruptmemory/sublime-text>
