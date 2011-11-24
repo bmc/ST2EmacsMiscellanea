@@ -109,7 +109,7 @@ Bind `wrap_paragraph` to a key:
 
     { "keys": ["alt+q"], "command": "wrap_paragraph"},
 
-### EmacsLike Syntax Setter
+### Emacs-like Syntax Setter
 
 [GNU Emacs][] has a useful feature that allows an individual file to override
 the default Emacs mode (and, hence, the associated language syntax and
