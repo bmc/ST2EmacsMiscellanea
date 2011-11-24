@@ -87,14 +87,7 @@ invokes the stock `wrap_lines` command to wrap the paragraph.
 
 See related bug report <http://sublimetext.userecho.com/topic/82731-/>
 
-#### Installation
-
-Copy `plugins/paragraph.py` to your Sublime `Packages/User` directory. For
-instance, on Linux:
-
-    $ git clone https://github.com/bmc/sublime-text-hacks
-    $ cd sublime-text-hacks
-    $ cp plugins/parawrap.py ~/.config/sublime-text-2/Packages/User/Default\ \(Linux\).sublime-keymap
+See below for installation instructions.
 
 #### Settings
 
@@ -115,6 +108,55 @@ Sample settings:
 Bind `wrap_paragraph` to a key:
 
     { "keys": ["alt+q"], "command": "wrap_paragraph"},
+
+### EmacsLike Syntax Setter
+
+[GNU Emacs][] has a useful feature that allows an individual file to override
+the default Emacs mode (and, hence, the associated language syntax and
+colorization) by using a special magic string somewhere in the first non-blank
+line of the file. (For documentation on this Emacs feature, see the Emacs
+[Choosing Modes][] documentation node.)
+
+[GNU Emacs]: http://www.gnu.org/s/emacs/
+[Choosing Modes]: http://www.gnu.org/software/emacs/manual/html_node/emacs/Choosing-Modes.html>
+
+The `EmacsLikeSyntaxSetter.py` plugin, in this repository, provides a similar
+capability for Sublime Text 2.
+
+For instance, if file `foo.C` would normally be displayed using C syntax rules,
+but you want to force Sublime Text 2 to use C++ rules, simply include a comment
+like this in the first non-blank line of the file:
+
+    //              -*- c++ -*-
+
+Notes:
+
+* The spaces between the `-*-` markers are optional, and any number of them is
+  permitted (including none).
+* The syntax name must match the name of a `.tmLanguage` file somewhere
+  underneath your Sublime Text 2 `Packages` directory. The name is matched
+  in a case-blind manner; thus, "Scala" and "scala" mean the same thing.
+  
+Thus, the following lines all set the buffer syntax to "Python":
+
+    #  -*-python-*-
+    #                    -*-        Python-*-
+    #         -*- PyThOn -*-
+    # -*- Python -*-
+
+See below for installation instructions.
+
+### Plugin Installation
+
+To install any of the plugins in this repo, clone the repo, and copy (or
+symlink) the plugin source file to your Sublime Text 2 `Packages/User`
+directory.
+
+For instance, to install the `parawrap` plugin on Linux:
+
+    $ git clone https://github.com/bmc/sublime-text-hacks
+    $ cd sublime-text-hacks
+    $ cp plugins/parawrap.py ~/.config/sublime-text-2/Packages/User/Default\ \(Linux\).sublime-keymap
 
 ## Other Repos
 
