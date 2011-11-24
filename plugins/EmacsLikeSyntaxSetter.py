@@ -16,11 +16,11 @@ class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
         -*- c++ -*-
 
     The name of the syntax must match a tmLanguage file somewhere
-    under your Sublime "Packages" directory. The match is case-insensitive.
+    under your Sublime "Packages" directory. The match is case-insensitive,
+    and white space between the "-*-" markers is optional.
     '''
     def __init__(self):
         self._syntax_re = re.compile(EMACS_SYNTAX_MARK_RE)
-        # Find all tmLanguage files below the packages path.
         self._syntaxes = {}
 
         # Construct a regular expression that will take a full path and
@@ -83,7 +83,7 @@ class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
         if buffer_syntax_value is not None:
             # The buffer has a syntax setting. See if it maps to one of the
             # known ones.
-            syntax = self._map_emacs_syntax_value(buffer_syntax_value)
+            syntax = self._syntaxes.get(buffer_syntax_value.lower(), None)
             if syntax is None:
                 # The syntax value doesn't map to something Sublime groks
                 name = view.name() or view.file_name()
@@ -96,6 +96,12 @@ class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
                     view.set_syntax_file(syntax)
 
     def _find_emacs_syntax_value(self, view):
+        '''
+        Find the first blank line, searches it for a syntax/mode marker and,
+        if found, extracts the language name without verifying that it's valid.
+
+        Returns the (string) name or None.
+        '''
         # Must be somewhere in the first nonblank line.
         first_nonblank_line = self._first_nonblank_line(view)
         syntax_expression = None
@@ -106,13 +112,15 @@ class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
 
         return syntax_expression
 
-    def _map_emacs_syntax_value(self, syntax_name):
-        return self._syntaxes.get(unicode(syntax_name.lower()), None)
-
     def _first_nonblank_line(self, view):
-        # Find the first non-blank line and return it. Start with point=0,
-        # which is the top of the buffer. Stop if point ever gets to the 
-        # end of the buffer.
+        '''
+        Find the first non-blank line in the view, starting at the top,
+        and return it.
+
+        Returns the line (str) or None
+        '''
+        # Start with point=0, which is the top of the buffer. Stop if point
+        # ever gets to the end of the buffer.
         point = 0
         size = view.size()
         result = None

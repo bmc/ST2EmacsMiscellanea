@@ -27,7 +27,7 @@
 			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 4388,
+				"buffer_size": 6833,
 				"line_ending": "Unix"
 			}
 		},
@@ -44,6 +44,14 @@
 			"settings":
 			{
 				"buffer_size": 1030,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "plugins/EmacsLikeSyntaxSetter.py",
+			"settings":
+			{
+				"buffer_size": 5666,
 				"line_ending": "Unix"
 			}
 		}
@@ -169,7 +177,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -177,15 +185,15 @@
 					"file": "README.md",
 					"settings":
 					{
-						"buffer_size": 4388,
+						"buffer_size": 6833,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3153,
-								3153
+								124,
+								124
 							]
 						],
 						"settings":
@@ -195,7 +203,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 917.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -212,8 +220,8 @@
 						"selection":
 						[
 							[
-								711,
-								711
+								2221,
+								2221
 							]
 						],
 						"settings":
@@ -230,7 +238,7 @@
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -245,8 +253,8 @@
 						"selection":
 						[
 							[
-								718,
-								718
+								545,
+								545
 							]
 						],
 						"settings":
@@ -257,6 +265,34 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "plugins/EmacsLikeSyntaxSetter.py",
+					"settings":
+					{
+						"buffer_size": 5666,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3485,
+								3485
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 630.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
