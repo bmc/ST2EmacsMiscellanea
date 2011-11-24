@@ -144,6 +144,17 @@ Thus, the following lines all set the buffer syntax to "Python":
     #         -*- PyThOn -*-
     # -*- Python -*-
 
+The plugin scans the buffer for a syntax-setting line under three
+circumstances:
+
+1. When you first load a file into a new view (buffer).
+2. Right after you save a buffer.
+3. When the buffer is activated (i.e., given keyboard focus).
+
+If you're editing a file, and you change the syntax line, you'll either
+have to save the buffer, or focus out and focus back on it, to force the
+new syntax setting to take effect.
+
 If the plugin fails to honor your syntax setting, see the Python console
 (normally accessible via *Ctrl-`*). There may be a warning that's helpful.
 
