@@ -174,4 +174,7 @@ For instance, to install the `parawrap` plugin on Linux:
 
 ## Other Repos
 
-Jim Powers also has some Sublime hacks: <https://github.com/corruptmemory/sublime-text>
+* [Eric Hamiter](https://github.com/ehamiter) has a repository of
+  Sublime Text 2 plugins: <https://github.com/ehamiter/Sublime-Text-2-Plugins>
+* [Jim Powers](https://github.com/corruptmemory) also has a repository with
+  some Sublime hacks: <https://github.com/corruptmemory/sublime-text>
