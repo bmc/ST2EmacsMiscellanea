@@ -24,7 +24,7 @@ class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
         self._syntaxes = {}
 
         # Construct a regular expression that will take a full path and
-        # yank out everything from "Packages/" to the end. This expression
+        # extract everything from "Packages/" to the end. This expression
         # will be use to map paths like /path/to/Packages/C/C.tmLanguage
         # to just Packages/C/C.tmLanguage, which is what Sublime wants
         # as a syntax setting.
@@ -32,37 +32,60 @@ class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
         package_pattern = '^.*%s(Packages%s.*)$' % (sep, sep)
         package_re = re.compile(package_pattern)
 
-        # Walk the directory tree.
+        # Recursively walk the Sublime Packages directory, looking for
+        # '.tmLanguage' files. Convert each one to a short language name
+        # (used as a dictionary key) and the full name that Sublime wants.
         for root, dirs, files in os.walk(sublime.packages_path()):
             # Filter out files that don't end in .tmLanguage
             lang_files = [f for f in files if f.endswith('.tmLanguage')]
+
             # Map to a full path...
             full_paths = [os.path.join(root, l) for l in lang_files]
+
             # ... and strip off everything prior to "Packages"
             for p in full_paths:
                 # The "Emacs" name is something like "C", or "Python"
                 emacs_syntax_name = os.path.splitext(os.path.basename(p))[0]
+
                 # The Sublime name is as described above.
                 sublime_syntax_name = package_re.search(p).group(1)
+
+                # Store in the hash.
                 self._syntaxes[emacs_syntax_name.lower()] = sublime_syntax_name
 
 
     def on_activated(self, view):
+        '''
+        Called when a view is activated (i.e., receives focus). That's a good
+        time to re-check the syntax setting.
+        '''
         self._check_syntax(view)
             
     def on_load(self, view):
+        '''
+        Called when a view is first loaded. Check the syntax setting then.
+        '''
         self._check_syntax(view)
 
     def on_post_save(self, view):
+        '''
+        Called right after a save. Check the syntax then, in case it changed.
+        '''
         self._check_syntax(view)
     
     def _check_syntax(self, view):
+        '''
+        Does the actual work of checking the syntax setting and changing it,
+        if necessary.
+        '''
+        # Scan the buffer to find the embedded syntax setting, if one exists.
         buffer_syntax_value = self._find_emacs_syntax_value(view)
         if buffer_syntax_value is not None:
             # The buffer has a syntax setting. See if it maps to one of the
             # known ones.
             syntax = self._map_emacs_syntax_value(buffer_syntax_value)
             if syntax is None:
+                # The syntax value doesn't map to something Sublime groks
                 name = view.name() or view.file_name()
                 print('WARNING: Unknown syntax value "%s" in file "%s".' %
                        (buffer_syntax_value, name))
@@ -87,19 +110,23 @@ class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
         return self._syntaxes.get(unicode(syntax_name.lower()), None)
 
     def _first_nonblank_line(self, view):
-        # Find the first non-blank line and return it.
+        # Find the first non-blank line and return it. Start with point=0,
+        # which is the top of the buffer. Stop if point ever gets to the 
+        # end of the buffer.
         point = 0
         size = view.size()
         result = None
         while (result is None) and (point < size):
-            # Get the region
+            # Get the region associated with the line at the current point.
             region = view.line(point)
             if region is None:
+                # No region. Point is invalid. We're done.
                 break
 
-            # Get the line itself.
+            # Extract the line itself.
             line = view.substr(region)
             if len(line.strip()) > 0:
+                # Non-empty line. We're done.
                 result = line
             else:
                 # Empty. Move past it.
