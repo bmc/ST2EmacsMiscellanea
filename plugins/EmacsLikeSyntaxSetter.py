@@ -1,8 +1,8 @@
-import sublime, sublime_plugin
+import sublime, sublime_plugin # -*- python -*-
 import re
 import os
 
-EMACS_SYNTAX_MARK_RE = r'-\*-\s*([^-\s]+)\s*-\*-'
+EMACS_SYNTAX_MARK_RE = r'-\*-\s*([^-]+)\s*-\*-'
 
 class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
     '''
@@ -30,7 +30,7 @@ class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
         # as a syntax setting.
         sep = r'\\' if os.sep == "\\" else os.sep
         package_pattern = '^.*%s(Packages%s.*)$' % (sep, sep)
-        package_re = re.compile(package_pattern)
+        package_re = re.compile(package_pattern)  
 
         # Recursively walk the Sublime Packages directory, looking for
         # '.tmLanguage' files. Convert each one to a short language name
@@ -52,7 +52,6 @@ class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
 
                 # Store in the hash.
                 self._syntaxes[emacs_syntax_name.lower()] = sublime_syntax_name
-
 
     def on_activated(self, view):
         '''
@@ -105,10 +104,11 @@ class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
         # Must be somewhere in the first nonblank line.
         first_nonblank_line = self._first_nonblank_line(view)
         syntax_expression = None
+        name = view.name() or view.file_name()
         if first_nonblank_line is not None:
             m = self._syntax_re.search(first_nonblank_line)
             if m is not None:
-                syntax_expression = m.group(1)
+                syntax_expression = m.group(1).strip()
 
         return syntax_expression
 
