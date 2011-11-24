@@ -24,6 +24,7 @@
   { "keys": ["alt+u"], "command": "upper_case" },
   { "keys": ["alt+l"], "command": "lower_case" },
   { "keys": ["alt+c"], "command": "title_case" },
+  { "keys": ["super+c"], "command": "title_case" },
   { "keys": ["alt+o"], "command": "toggle_overwrite" },
   { "keys": ["ctrl+alt+n"], "command": "new_file" },
   { "keys": ["ctrl+alt+o"], "command": "prompt_open_file" },
@@ -45,6 +46,7 @@
   { "keys": ["ctrl+space"], "command": "emacs_set_mark" },
   { "keys": ["ctrl+w"], "command": "emacs_kill_to_mark" },
   { "keys": ["alt+w"], "command": "emacs_kill_ring_save" },
+  { "keys": ["command+w"], "command": "emacs_kill_ring_save" },
   { "keys": ["ctrl+g"], "command": "cancel_mark" },
 
   // Use these bindings if you don't want to install
@@ -69,12 +71,13 @@
   { "keys": ["ctrl+r"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse":true} },
   { "keys": ["ctrl+s"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse":false} },
   { "keys": ["alt+r"], "command": "show_panel", "args": {"panel": "replace"} },
+  { "keys": ["super+r"], "command": "show_panel", "args": {"panel": "replace"} },
   
   // ----------------------------------------------------------------------
   // Auto-complete bindings
   
-  { "keys": ["alt+space"], "command": "auto_complete" },
-  { "keys": ["atl+space"], "command": "replace_completion_with_auto_complete", "context":
+  //{ "keys": ["alt+space"], "command": "auto_complete" },
+  { "keys": ["alt+space"], "command": "replace_completion_with_auto_complete", "context":
     [
       { "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
       { "key": "setting.tab_completion", "operator": "equal", "operand": true }
@@ -88,7 +91,6 @@
 
   // ----------------------------------------------------------------------
   // Additional rebindings
-
   // Ctrl-P is used for line-up. Map Alt-G to "goto-anything".
   { "keys": ["alt+g"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} }
 ]

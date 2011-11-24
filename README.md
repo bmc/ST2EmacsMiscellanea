@@ -43,7 +43,7 @@ For instance, on Linux:
 
     $ git clone https://github.com/bmc/sublime-text-hacks
     $ cd sublime-text-hacks
-    $ cp keymaps/Emacsish-keybindings.sublime-keymap ~/.config/sublime-text-2/Packages/User/Default\ \(Linux\).sublime-keymap
+    $ cp keymaps/Emacsish-keybindings.sublime-keymap ~/.config/sublime-text-2/Packages/User
 
 #### Non-Standard Emacs Mappings
 
