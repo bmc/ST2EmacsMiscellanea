@@ -144,6 +144,9 @@ Thus, the following lines all set the buffer syntax to "Python":
     #         -*- PyThOn -*-
     # -*- Python -*-
 
+If the plugin fails to honor your syntax setting, see the Python console
+(normally accessible via *Ctrl-`*). There may be a warning that's helpful.
+
 See below for installation instructions.
 
 ### Plugin Installation
