@@ -2,8 +2,8 @@
 
 ## Intro
 
-This repo contains various hacks (keymaps, etc.) for the [Sublime Text 2][]
-text editor.
+This repo contains various hacks (keymaps, plugins, etc.) for the
+[Sublime Text 2][] text editor.
 
 [Sublime Text 2]: http://www.sublimetext.com/2
 
