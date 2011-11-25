@@ -209,6 +209,9 @@ For instance, on Linux:
     $ cd sublime-text-hacks
     $ cp keymaps/Emacsish-keybindings.sublime-keymap ~/.config/sublime-text-2/Packages/User
 
+  If you've already installed the plugins, then you can simply get the
+  key bindings from your `Package/sublime-text-hacks/keymaps` directory.
+
 #### Non-Standard Emacs Mappings
 
 * *Incremental Search* (not "regular search") is bound to *Ctrl-s*.
