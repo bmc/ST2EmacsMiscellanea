@@ -66,6 +66,8 @@ For instance, on Linux:
   for consistency with TextMate key bindings. *Alt-q* also maps to
   `wrap_paragraph`.
 * Because I rebound *Ctrl-Q*, these bindings map *Ctrl-Alt-q* to `exit`.
+* *Alt-Space* is bound to `fixup_whitespace`, which is implemented via my
+  Fixup Whitespace plugin, below.
 
 #### Unexpected Oddities
 
@@ -75,7 +77,7 @@ for *Open File*, *New File* and *Save File*.
 
 ## Plugins
 
-### parawrap
+### Paragraph Wrapping
 
 The stock Sublime Text 2 `wrap_width` setting controls both on-screen wrapping
 and the column at which the `wrap_lines` command folds lines. Those two
@@ -108,6 +110,28 @@ Sample settings:
 Bind `wrap_paragraph` to a key:
 
     { "keys": ["alt+q"], "command": "wrap_paragraph"},
+
+### Fixup Whitespace
+
+Emacs has a function called `fixup-whitespace`, documented as:
+
+> This function replaces all the horizontal whitespace surrounding point with
+> either one space or no space, according to the context. It returns nil.
+>
+> At the beginning or end of a line, the appropriate amount of space is none.
+> Before a character with close parenthesis syntax, or after a character with
+> open parenthesis or expression-prefix syntax, no space is also appropriate.
+> Otherwise, one space is appropriate.
+
+(See the [Emacs fixup-whitespace command][] for details.)
+
+This repo provides a plugin, in `plugsin/FixupWhitespace.py` that emulates the
+Emacs `fixup-whitespace` command. By default, my key bindings (above) map
+the function to *Alt-Space*.
+
+See below for installation instructions.
+
+[Emacs fixup-whitespace command]: http://www.gnu.org/s/emacs/manual/html_node/elisp/User_002dLevel-Deletion.html#index-fixup_002dwhitespace-2569
 
 ### Emacs-like Syntax Setter
 

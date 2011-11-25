@@ -15,7 +15,7 @@
   { "keys": ["alt+backspace"], "command": "delete_word", "args": { "forward": false } },
   { "keys": ["super+backspace"], "command": "delete_word", "args": { "forward": false } },
   { "keys": ["ctrl+/"], "command": "undo"},
-  { "keys": ["alt-z"], "command": "undo"},
+  { "keys": ["alt+z"], "command": "undo"}, // consistency with the Mac
   { "keys": ["alt+b"], "command": "move", "args": {"by": "words", "forward": false} },
   { "keys": ["alt+f"], "command": "move", "args": {"by": "word_ends", "forward": true} },
   { "keys": ["ctrl+o"], "command": "insert", "args": {"characters": "\n"} },
@@ -31,7 +31,10 @@
   { "keys": ["ctrl+alt+n"], "command": "new_file" },
   { "keys": ["ctrl+alt+o"], "command": "prompt_open_file" },
 
-  // Paragraph wrap: Use my local hack, which works better.
+  // ----------------------------------------------------------------------
+  // Wrap Paragraph: use a different plugin than the stock one.
+  // Requires parawrap.py from https://github.com/bmc/sublime-text-hacks
+  //
   // Also, map "Ctrl-Q", for consistency with TextMate.
   { "keys": ["ctrl+q"], "command": "wrap_paragraph"},
   { "keys": ["alt+q"], "command": "wrap_paragraph"},
@@ -76,16 +79,14 @@
   { "keys": ["super+r"], "command": "show_panel", "args": {"panel": "replace"} },
   
   // ----------------------------------------------------------------------
-  // Auto-complete bindings
+  // Alt-space = fixup-whitespace
+  { "keys": ["alt+space"], "command": "fixup_whitespace"},
   
-  //{ "keys": ["alt+space"], "command": "auto_complete" },
-  { "keys": ["alt+space"], "command": "replace_completion_with_auto_complete", "context":
-    [
-      { "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
-      { "key": "setting.tab_completion", "operator": "equal", "operand": true }
-    ]
-  },
-
+  // ----------------------------------------------------------------------
+  // Auto-complete bindings
+  //
+  // NOTE: Not necessary. Use TAB.
+  
   // ----------------------------------------------------------------------
   // Build bindings. Ctrl-B is being used for backward-char. Need something
   // else to fire off a build.

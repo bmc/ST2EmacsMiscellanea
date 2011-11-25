@@ -24,10 +24,13 @@
 	"buffers":
 	[
 		{
+			"contents": "# Some Sublime Text 2 Stuff\n\n## Intro\n\nThis repo contains various hacks (keymaps, plugins, etc.) for the\n[Sublime Text 2][] text editor.\n\n[Sublime Text 2]: http://www.sublimetext.com/2\n\n## Warning\n\nI use these files myself, but *caveat user*. If you use them, and they screw you all to hell, it's not my fault.\n\n## Key Bindings\n\n### Emacs-ish Key Bindings\n\nThe file `Emacsish-keybindings.sublime-keymap` provides various Emacs-like key\nbindings for Sublime Text 2.\n\n#### Prerequisites\n\nBy default, the key bindings use Stian Grytøyr's Emacs-style *kill ring*\nimplementation, available at <https://github.com/stiang/EmacsKillRing>. If you\nprefer the more standard, Windows-like cut-and-paste semantics, see the\n`Emacsish-keybindings.sublime-keymap` file. You can comment out the kill ring\nmappings and uncomment the cut-and-paste mappings, instead.\n\n#### Installation\n\nTo install these bindings as your default key bindings, check out this\nrepository and copy the file to the appropriate directory for your platform, as\nshown below:\n\n* Linux: `~/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap`\n* Mac: `/Users/bmc/Library/Application Support/Sublime Text 2/Packages/User\\Default (OSX).sublime-keymap`\n* Windows: `C:\\Users\\username\\AppData\\Roaming\\Sublime Text 2\\Packages\\User\\Default (Windows).sublime-keymap` \n  (**NOTE**: That's the path on *my* Windows 7 machine, with `username` \n  replaced by my user name, and using the non-portable version of \n  Sublime Text 2. YMMV.)\n\nFor instance, on Linux:\n\n    $ git clone https://github.com/bmc/sublime-text-hacks\n    $ cd sublime-text-hacks\n    $ cp keymaps/Emacsish-keybindings.sublime-keymap ~/.config/sublime-text-2/Packages/User\n\n#### Non-Standard Emacs Mappings\n\n* *Incremental Search* (not \"regular search\") is bound to *Ctrl-s*.\n* *Ctrl-r* is bound to *Reverse Incremental Search*.\n* *Alt-r* (*Command-r* on the Mac) is bound to *Search and Replace*.\n* *Alt-s* (*Command-s* on the Mac) is bound to *Save*, as well, for consistency\n  with TextMate and other Mac applications. (You can comment this out, or \n  rebind it.)\n* *Ctrl-/* is bound to *Undo*, mostly because that's what I'm used to using.\n* *Alt-z* (*Command-z* on the Mac) is also bound to *Undo*, for consistency\n  with TextMate and other Mac applications.\n* *Ctrl-Alt-n* is bound to *New File*.\n* *Ctrl-Alt-o* is bound to *Open File*, as is the more standard Emacs\n  *Ctrl-x Ctrl-f* key sequence.\n* Pressing *Ctrl-s* repeatedly does not continue the incremental search.\n  Use F3 for that. There may be a way to have *Ctrl-s* do what I want,\n  perhaps by using contexts. I'm not sure how to do that yet.\n* *Ctrl-q* maps to `wrap_paragraph` (see the `parawrap` plugin in this repo),\n  for consistency with TextMate key bindings. *Alt-q* also maps to\n  `wrap_paragraph`.\n* Because I rebound *Ctrl-Q*, these bindings map *Ctrl-Alt-q* to `exit`.\n\n#### Unexpected Oddities\n\nWith these bindings in place, the Sublime Text 2 menus may not be correct. For\ninstance, the file menu will still show the standard Sublime Text 2 bindings\nfor *Open File*, *New File* and *Save File*.\n\n## Plugins\n\n### Paragraph Wrapping\n\nThe stock Sublime Text 2 `wrap_width` setting controls both on-screen wrapping\nand the column at which the `wrap_lines` command folds lines. Those two\nsettings should be different; otherwise, paragraphs can wrap strangely on the\nscreen. `parawrap.py` contains a wrapper command called `wrap_paragraph` that\nlooks for a `wrap_paragraph` setting. If that setting is found, its (integer)\nvalue is used to override `wrap_width`. Then, the `wrap_paragraph` command\ninvokes the stock `wrap_lines` command to wrap the paragraph.\n\nSee related bug report <http://sublimetext.userecho.com/topic/82731-/>\n\nSee below for installation instructions.\n\n#### Settings\n\nSample settings:\n\n    {\n        // On screen, words wrap at 80.\n        \"wrap_width\": 80,\n\n        // When wrap_paragraph is invoke, words wrap at 79.\n        \"wrap_paragraph\": 79,\n\n        \"rulers\": [80]\n    }\n\n#### Key bindings\n\nBind `wrap_paragraph` to a key:\n\n    { \"keys\": [\"alt+q\"], \"command\": \"wrap_paragraph\"},\n\n### Fixup Whitespace\n\nEmacs has a function called `fixup-whitespace`, documented as:\n\n> This function replaces all the horizontal whitespace surrounding point with\n> either one space or no space, according to the context. It returns nil.\n>\n> At the beginning or end of a line, the appropriate amount of space is none.\n> Before a character with close parenthesis syntax, or after a character with\n> open parenthesis or expression-prefix syntax, no space is also appropriate.\n> Otherwise, one space is appropriate.\n\n(See the [Emacs fixup-whitespace command][] for details.)\n\nThis repo provides a plugin, in `plugsin/ that emulates the Emacs `fixup-whitespace`\n\n[Emacs fixup-whitespace command]: http://www.gnu.org/s/emacs/manual/html_node/elisp/User_002dLevel-Deletion.html#index-fixup_002dwhitespace-2569\n\n### Emacs-like Syntax Setter\n\n[GNU Emacs][] has a useful feature that allows an individual file to override\nthe default Emacs mode (and, hence, the associated language syntax and\ncolorization) by using a special magic string somewhere in the first non-blank\nline of the file. (For documentation on this Emacs feature, see the Emacs\n[Choosing Modes][] documentation node.)\n\n[GNU Emacs]: http://www.gnu.org/s/emacs/\n[Choosing Modes]: http://www.gnu.org/software/emacs/manual/html_node/emacs/Choosing-Modes.html>\n\nThe `EmacsLikeSyntaxSetter.py` plugin, in this repository, provides a similar\ncapability for Sublime Text 2.\n\nFor instance, if file `foo.C` would normally be displayed using C syntax rules,\nbut you want to force Sublime Text 2 to use C++ rules, simply include a comment\nlike this in the first non-blank line of the file:\n\n    //              -*- c++ -*-\n\nNotes:\n\n* The spaces between the `-*-` markers are optional, and any number of them is\n  permitted (including none).\n* The syntax name must match the name of a `.tmLanguage` file somewhere\n  underneath your Sublime Text 2 `Packages` directory. The name is matched\n  in a case-blind manner; thus, \"Scala\" and \"scala\" mean the same thing.\n  \nThus, the following lines all set the buffer syntax to \"Python\":\n\n    #  -*-python-*-\n    #                    -*-        Python-*-\n    #         -*- PyThOn -*-\n    # -*- Python -*-\n\nThe plugin scans the buffer for a syntax-setting line under three\ncircumstances:\n\n1. When you first load a file into a new view (buffer).\n2. Right after you save a buffer.\n3. When the buffer is activated (i.e., given keyboard focus).\n\nIf you're editing a file, and you change the syntax line, you'll either\nhave to save the buffer, or focus out and focus back on it, to force the\nnew syntax setting to take effect.\n\nIf the plugin fails to honor your syntax setting, see the Python console\n(normally accessible via *Ctrl-`*). There may be a warning that's helpful.\n\nSee below for installation instructions.\n\n### Plugin Installation\n\nTo install any of the plugins in this repo, clone the repo, and copy (or\nsymlink) the plugin source file to your Sublime Text 2 `Packages/User`\ndirectory.\n\nFor instance, to install the `parawrap` plugin on Linux:\n\n    $ git clone https://github.com/bmc/sublime-text-hacks\n    $ cd sublime-text-hacks\n    $ cp plugins/parawrap.py ~/.config/sublime-text-2/Packages/User/Default\\ \\(Linux\\).sublime-keymap\n\n## Other Repos\n\n* [Eric Hamiter](https://github.com/ehamiter) has a repository of\n  Sublime Text 2 plugins: <https://github.com/ehamiter/Sublime-Text-2-Plugins>\n* [Jim Powers](https://github.com/corruptmemory) also has a repository with\n  some Sublime hacks: <https://github.com/corruptmemory/sublime-text>\n",
 			"file": "README.md",
+			"file_size": 6847,
+			"file_write_time": 1322241323000000,
 			"settings":
 			{
-				"buffer_size": 6833,
+				"buffer_size": 7648,
 				"line_ending": "Unix"
 			}
 		},
@@ -40,18 +43,10 @@
 			}
 		},
 		{
-			"file": "/home/bmc/.config/sublime-text-2/Packages/User/test_plugin.py",
+			"contents": "a ba a.",
 			"settings":
 			{
 				"buffer_size": 7,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/bmc/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
-			"settings":
-			{
-				"buffer_size": 5109,
 				"line_ending": "Unix"
 			}
 		},
@@ -64,10 +59,18 @@
 			}
 		},
 		{
-			"file": "plugins/EmacsLikeSyntaxSetter.py",
+			"file": "/home/bmc/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
 			"settings":
 			{
-				"buffer_size": 5737,
+				"buffer_size": 5169,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "plugins/FixupWhitespace.py",
+			"settings":
+			{
+				"buffer_size": 3233,
 				"line_ending": "Unix"
 			}
 		}
@@ -91,7 +94,7 @@
 	},
 	"console":
 	{
-		"height": 287.0
+		"height": 261.0
 	},
 	"distraction_free":
 	{
@@ -104,6 +107,9 @@
 	},
 	"file_history":
 	[
+		"/home/bmc/src/mystuff/java/jedit-emacs/jedit-emacs/Emacs_Fixup_Whitespace.bsh",
+		"/home/bmc/.config/sublime-text-2/Packages/User/test_plugin.py",
+		"/home/bmc/src/mystuff/sublime-text-hacks/plugins/EmacsLikeSyntaxSetter.py",
 		"/home/bmc/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
 		"/home/bmc/.config/sublime-text-2/Packages/User/parawrap.py",
 		"/home/bmc/.config/sublime-text-2/Packages/User/Markdown.sublime-settings",
@@ -158,6 +164,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"whitespace",
 			"tab",
 			"paragraph",
 			"alt+q",
@@ -183,6 +190,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"ws"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -193,7 +201,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -201,15 +209,15 @@
 					"file": "README.md",
 					"settings":
 					{
-						"buffer_size": 6833,
+						"buffer_size": 7648,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								124,
-								124
+								4726,
+								4726
 							]
 						],
 						"settings":
@@ -219,7 +227,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1215.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -253,98 +261,9 @@
 				},
 				{
 					"buffer": 2,
-					"file": "/home/bmc/.config/sublime-text-2/Packages/User/test_plugin.py",
 					"settings":
 					{
 						"buffer_size": 7,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7,
-								7
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/bmc/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
-					"settings":
-					{
-						"buffer_size": 5109,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1196,
-								1196
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
-				{
-					"buffer": 4,
-					"file": "plugins/parawrap.py",
-					"settings":
-					{
-						"buffer_size": 1030,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								545,
-								545
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "plugins/EmacsLikeSyntaxSetter.py",
-					"settings":
-					{
-						"buffer_size": 5737,
 						"regions":
 						{
 						},
@@ -357,12 +276,100 @@
 						],
 						"settings":
 						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "plugins/parawrap.py",
+					"settings":
+					{
+						"buffer_size": 1030,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								149,
+								149
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/Python/Python.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/bmc/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+					"settings":
+					{
+						"buffer_size": 5169,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1308,
+								1308
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1097.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "plugins/FixupWhitespace.py",
+					"settings":
+					{
+						"buffer_size": 3233,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2699,
+								2699
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 720.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
