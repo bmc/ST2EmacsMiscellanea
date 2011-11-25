@@ -136,9 +136,9 @@ be necessary once the repository is listed in the master Package Control
 repository list, which should be soon):
 
 Go to the *Preferences > Packages Settings > Package Control > Settings - User*
-menu. That will bring up `Package Control.sublime-settings` in a buffer. In the resulting buffer, make sure "repositories" contains
-"https://github.com/bmc/sublime-text-hacks". For instance, my file looks
-like this:
+menu. That will bring up `Package Control.sublime-settings` in a buffer. In the
+resulting buffer, make sure "repositories" contains "https://github.com/bmc
+/sublime-text-hacks". For instance, my file looks like this:
 
     {
       "auto_upgrade_last_run": 1322234232,

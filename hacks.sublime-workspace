@@ -35,7 +35,15 @@
 			"file": "Plugin-EmacsCommands.py",
 			"settings":
 			{
-				"buffer_size": 3466,
+				"buffer_size": 4466,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/bmc/.config/sublime-text-2/Packages/User/Package Control.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 111,
 				"line_ending": "Unix"
 			}
 		},
@@ -51,7 +59,7 @@
 			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 8048,
+				"buffer_size": 9177,
 				"line_ending": "Unix"
 			}
 		}
@@ -64,7 +72,7 @@
 		[
 			[
 				"Package Control: ",
-				"Package Control: Upgrade/Overwrite All Packages"
+				"Package Control: Upgrade Package"
 			],
 			[
 				":w",
@@ -225,15 +233,15 @@
 					"file": "Plugin-EmacsCommands.py",
 					"settings":
 					{
-						"buffer_size": 3466,
+						"buffer_size": 4466,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								453,
-								453
+								3278,
+								3278
 							]
 						],
 						"settings":
@@ -241,6 +249,32 @@
 							"syntax": "Packages/Python/Python.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1292.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/bmc/.config/sublime-text-2/Packages/User/Package Control.sublime-settings",
+					"settings":
+					{
+						"buffer_size": 111,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								111,
+								111
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -255,7 +289,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "Plugin-EmacsLikeSyntaxSetter.py",
 					"settings":
 					{
@@ -283,19 +317,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "README.md",
 					"settings":
 					{
-						"buffer_size": 8048,
+						"buffer_size": 9177,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								5032,
+								5032
 							]
 						],
 						"settings":
@@ -305,7 +339,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 405.0,
+						"translation.y": 1935.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
