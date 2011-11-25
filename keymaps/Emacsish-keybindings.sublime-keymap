@@ -14,7 +14,6 @@
   { "keys": ["ctrl+backspace"], "command": "delete_word", "args": { "forward": false } },
   { "keys": ["alt+backspace"], "command": "delete_word", "args": { "forward": false } },
   { "keys": ["super+backspace"], "command": "delete_word", "args": { "forward": false } },
-  { "keys": ["esc+backspace"], "command": "delete_word", "args": { "forward": false } },
   { "keys": ["ctrl+/"], "command": "undo"},
   { "keys": ["alt-z"], "command": "undo"},
   { "keys": ["alt+b"], "command": "move", "args": {"by": "words", "forward": false} },

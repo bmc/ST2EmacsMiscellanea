@@ -40,6 +40,22 @@
 			}
 		},
 		{
+			"file": "/home/bmc/.config/sublime-text-2/Packages/User/test_plugin.py",
+			"settings":
+			{
+				"buffer_size": 7,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/bmc/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+			"settings":
+			{
+				"buffer_size": 5109,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "plugins/parawrap.py",
 			"settings":
 			{
@@ -51,7 +67,7 @@
 			"file": "plugins/EmacsLikeSyntaxSetter.py",
 			"settings":
 			{
-				"buffer_size": 5666,
+				"buffer_size": 5737,
 				"line_ending": "Unix"
 			}
 		}
@@ -177,7 +193,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -220,14 +236,68 @@
 						"selection":
 						[
 							[
-								2221,
-								2221
+								324,
+								324
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JSON.tmLanguage",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/bmc/.config/sublime-text-2/Packages/User/test_plugin.py",
+					"settings":
+					{
+						"buffer_size": 7,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7,
+								7
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/bmc/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+					"settings":
+					{
+						"buffer_size": 5109,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1196,
+								1196
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -242,7 +312,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 2,
+					"buffer": 4,
 					"file": "plugins/parawrap.py",
 					"settings":
 					{
@@ -270,19 +340,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 5,
 					"file": "plugins/EmacsLikeSyntaxSetter.py",
 					"settings":
 					{
-						"buffer_size": 5666,
+						"buffer_size": 5737,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3485,
-								3485
+								0,
+								0
 							]
 						],
 						"settings":
@@ -292,7 +362,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 630.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
