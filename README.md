@@ -80,8 +80,6 @@ invokes the stock `wrap_lines` command to wrap the paragraph.
 
 See related bug report <http://sublimetext.userecho.com/topic/82731-/>
 
-See below for installation instructions.
-
 #### Settings
 
 Sample settings:
@@ -120,8 +118,6 @@ This repo provides a plugin, in `plugsin/FixupWhitespace.py` that emulates the
 Emacs `fixup-whitespace` command. By default, my key bindings (above) map
 the function to *Alt-Space*.
 
-See below for installation instructions.
-
 [Emacs fixup-whitespace command]: http://www.gnu.org/s/emacs/manual/html_node/elisp/User_002dLevel-Deletion.html#index-fixup_002dwhitespace-2569
 
 ### Plugin: *emacs_open_line* command
@@ -132,7 +128,7 @@ Emacs-y way:
 
     { "keys": ["ctrl+o"], "command": "emacs_open_line" },
 
-### Emacs-like Syntax Setter
+### Plugin: Emacs-like Syntax Setter
 
 [GNU Emacs][] has a useful feature that allows an individual file to override
 the default Emacs mode (and, hence, the associated language syntax and
@@ -181,7 +177,8 @@ new syntax setting to take effect.
 If the plugin fails to honor your syntax setting, see the Python console
 (normally accessible via *Ctrl-`*). There may be a warning that's helpful.
 
-See below for installation instructions.
+**Note**: This plugin isn't a command; it's an event handler. Installing these
+plugins automatically enables this particular plugin.
 
 ## Key Bindings
 
@@ -242,7 +239,7 @@ For instance, on Linux:
   `wrap_paragraph`.
 * Because I rebound *Ctrl-Q*, these bindings map *Ctrl-Alt-q* to `exit`.
 * *Alt-Space* is bound to `fixup_whitespace`, which is implemented via my
-  Fixup Whitespace plugin, below.
+  *fixup_whitespace* command, above.
 
 #### Unexpected Oddities
 
