@@ -33,33 +33,28 @@ class FixupWhitespaceCommand(sublime_plugin.TextCommand):
 
         # Now do the actual delete, using the Sublime Text standard
         # edit block approach, which allows for undo.
-        try:
-            edit = self.view.begin_edit()
-            if suffix_ws_region is not None:
-                self.view.erase(edit, suffix_ws_region)
+        if suffix_ws_region is not None:
+            self.view.erase(edit, suffix_ws_region)
 
-            if prefix_ws_region is not None:
-                self.view.erase(edit, prefix_ws_region)
+        if prefix_ws_region is not None:
+            self.view.erase(edit, prefix_ws_region)
 
-            # Make sure there's one blank left, unless:
-            #
-            # a) the next character is not a letter or digit, or
-            # b) the previous character is not a letter or digit, or
-            # c) we're at the beginning of the line
-            point = self.view.sel()[0].begin()
-            bol = line.begin()
-            if point > bol:
-                def letter_or_digit(c):
-                    return c.isdigit() or c.isalpha()
+        # Make sure there's one blank left, unless:
+        #
+        # a) the next character is not a letter or digit, or
+        # b) the previous character is not a letter or digit, or
+        # c) we're at the beginning of the line
+        point = self.view.sel()[0].begin()
+        bol = line.begin()
+        if point > bol:
+            def letter_or_digit(c):
+                return c.isdigit() or c.isalpha()
 
-                c = self.view.substr(point)
-                c_prev = self.view.substr(point - 1)
+            c = self.view.substr(point)
+            c_prev = self.view.substr(point - 1)
 
-                if letter_or_digit(c) and letter_or_digit(c_prev):
-                    self.view.insert(edit, point, ' ')
-
-        finally:
-            self.view.end_edit(edit)
+            if letter_or_digit(c) and letter_or_digit(c_prev):
+                self.view.insert(edit, point, ' ')
    
     def _handle_prefix_whitespace(self, point, line):
         p = point
