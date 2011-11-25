@@ -96,7 +96,7 @@ class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
 
     def _find_emacs_syntax_value(self, view):
         '''
-        Find the first blank line, searches it for a syntax/mode marker and,
+        Finds the first blank line, searches it for a syntax/mode marker and,
         if found, extracts the language name without verifying that it's valid.
 
         Returns the (string) name or None.
@@ -114,8 +114,8 @@ class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
 
     def _first_nonblank_line(self, view):
         '''
-        Find the first non-blank line in the view, starting at the top,
-        and return it.
+        Finds the first non-blank line in the view, starting at the top,
+        and returns it.
 
         Returns the line (str) or None
         '''

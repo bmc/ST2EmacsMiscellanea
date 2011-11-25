@@ -99,7 +99,7 @@ Sample settings:
         // On screen, words wrap at 80.
         "wrap_width": 80,
 
-        // When wrap_paragraph is invoke, words wrap at 79.
+        // When wrap_paragraph is invoked, words wrap at 79.
         "wrap_paragraph": 79,
 
         "rulers": [80]
