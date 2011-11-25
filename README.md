@@ -68,7 +68,7 @@ It might be necessary to restart the editor.
 
 To upgrade, just do a `git pull` within that directory.
 
-### Paragraph Wrapping
+### Plugin: *wrap_paragraph* command
 
 The stock Sublime Text 2 `wrap_width` setting controls both on-screen wrapping
 and the column at which the `wrap_lines` command folds lines. Those two
@@ -100,9 +100,9 @@ Sample settings:
 
 Bind `wrap_paragraph` to a key:
 
-    { "keys": ["alt+q"], "command": "wrap_paragraph"},
+    { "keys": ["alt+q"], "command": "wrap_paragraph" },
 
-### Fixup Whitespace
+### Plugin: *fixup_whitespace* command
 
 Emacs has a function called `fixup-whitespace`, documented as:
 
@@ -123,6 +123,14 @@ the function to *Alt-Space*.
 See below for installation instructions.
 
 [Emacs fixup-whitespace command]: http://www.gnu.org/s/emacs/manual/html_node/elisp/User_002dLevel-Deletion.html#index-fixup_002dwhitespace-2569
+
+### Plugin: *emacs_open_line* command
+
+The `emacs_open_line` command inserts a newline at the cursor, without moving
+the cursor. Map it to *Ctrl-o* to make *Ctrl-o* behave in a more traditional
+Emacs-y way:
+
+    { "keys": ["ctrl+o"], "command": "emacs_open_line" },
 
 ### Emacs-like Syntax Setter
 
