@@ -11,7 +11,6 @@ This repo contains various hacks (keymaps, plugins, etc.) for the
 
 I use these files myself, but *caveat user*. If you use them, and they screw you all to hell, it's not my fault.
 
-
 ## Plugins
 
 ### Paragraph Wrapping
@@ -125,21 +124,56 @@ See below for installation instructions.
 
 There are several ways to install these plugins.
 
+NOTE: The plugins do _not_ install any key bindings by default. If you want to
+use my key bindings, see below.
+
 #### Via Package Control
 
 If you're using Will Bond's [Package Control][] (and you should be):
 
-1. Add 
+First add this repository to your Package Control repo list. (This step won't
+be necessary once the repository is listed in the master Package Control
+repository list, which should be soon):
+
+Go to the *Preferences > Packages Settings > Package Control > Settings - User*
+menu. That will bring up `Package Control.sublime-settings` in a buffer. In the resulting buffer, make sure "repositories" contains
+"https://github.com/bmc/sublime-text-hacks". For instance, my file looks
+like this:
+
+    {
+      "auto_upgrade_last_run": 1322234232,
+      "repositories":
+      [
+        "https://github.com/bmc/sublime-text-hacks"
+      ]
+    }
+
+Then, pull up *Preferences > Package Control*, select
+*Package Control: Install Package*, and search for "hacks". It should point
+to this package, which you can then install.
+
+To upgrade the package, just use the Package Control package upgrade 
+capability.
 
 [Package Control]: http://wbond.net/sublime_packages/package_control
-symlink) the plugin source file to your Sublime Text 2 `Packages/User`
-directory.
 
-For instance, to install the `parawrap` plugin on Linux:
+#### Manually
 
+
+Go to your Sublime Text 2 `Packages` directory and clone the repository.
+For instance, on Linux:
+
+    $ cd ~/.config/sublime-text-2/Packages
     $ git clone https://github.com/bmc/sublime-text-hacks
-    $ cd sublime-text-hacks
-    $ cp plugins/parawrap.py ~/.config/sublime-text-2/Packages/User/Default\ \(Linux\).sublime-keymap
+
+On Mac OS X:
+
+    $ cd "$HOME/Library/Application Support/Sublime Text 2/Packages"
+    $ git clone https://github.com/bmc/sublime-text-hacks
+
+It might be necessary to restart the editor.
+
+To upgrade, just do a `git pull` within that directory.
 
 ## Key Bindings
 
