@@ -64,7 +64,7 @@
 		[
 			[
 				"Package Control: ",
-				"Package Control: Install Package"
+				"Package Control: Upgrade/Overwrite All Packages"
 			],
 			[
 				":w",
@@ -232,8 +232,8 @@
 						"selection":
 						[
 							[
-								31,
-								31
+								453,
+								453
 							]
 						],
 						"settings":
