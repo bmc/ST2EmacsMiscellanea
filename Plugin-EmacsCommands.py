@@ -105,7 +105,7 @@ class FixupWhitespaceCommand(sublime_plugin.TextCommand):
         return sublime.Region(point, p)
 
     def _line_end(self, c):
-        return (c in ["\r", "\n", u'\x00'])import sublime, sublime_plugin
+        return (c in ["\r", "\n", u'\x00'])
 
 class WrapParagraphCommand(paragraph.WrapLinesCommand):
     """
