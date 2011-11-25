@@ -1,5 +1,20 @@
 import sublime, sublime_plugin
 
+class EmacsOpenLineCommand(sublime_plugin.TextCommand):
+    '''
+    Emacs-style 'open-line' command: Inserts a newline at the current
+    cursor position, without moving the cursor like Sublime's insert
+    command does.
+    '''
+    def run(self, edit):
+        sel = self.view.sel()
+        if (sel is None) or (len(sel) == 0):
+            return
+
+        point = sel[0].end()
+        self.view.insert(edit, point, '\n')
+        self.view.run_command('move', {'by': 'characters', 'forward': False})
+
 class FixupWhitespaceCommand(sublime_plugin.TextCommand):
     '''
     FixupWhitespaceCommand is a Sublime Text 2 plugin command that emulates

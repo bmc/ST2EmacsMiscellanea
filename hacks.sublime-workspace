@@ -24,74 +24,34 @@
 	"buffers":
 	[
 		{
+			"file": "package-metadata.json",
+			"settings":
+			{
+				"buffer_size": 172,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Plugin-EmacsCommands.py",
+			"settings":
+			{
+				"buffer_size": 3466,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Plugin-EmacsLikeSyntaxSetter.py",
+			"settings":
+			{
+				"buffer_size": 5740,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "README.md",
 			"settings":
 			{
 				"buffer_size": 8048,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/bmc/.config/sublime-text-2/Packages/Default/Global.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 2630,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/bmc/.config/sublime-text-2/Packages/User/test.py",
-			"settings":
-			{
-				"buffer_size": 531,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "pavement.py",
-			"settings":
-			{
-				"buffer_size": 586,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "package-metadata.json",
-			"settings":
-			{
-				"buffer_size": 137,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "plugins/parawrap.py",
-			"settings":
-			{
-				"buffer_size": 1030,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/bmc/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
-			"settings":
-			{
-				"buffer_size": 5226,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "plugins/FixupWhitespace.py",
-			"settings":
-			{
-				"buffer_size": 2965,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "plugins/EmacsLikeSyntaxSetter.py",
-			"settings":
-			{
-				"buffer_size": 5740,
 				"line_ending": "Unix"
 			}
 		}
@@ -128,14 +88,20 @@
 	},
 	"file_history":
 	[
+		"/home/bmc/src/mystuff/sublime-text-2/sublime-text-hacks/plugins/FixupWhitespace.py",
+		"/home/bmc/src/mystuff/sublime-text-2/sublime-text-hacks/plugins/EmacsLikeSyntaxSetter.py",
+		"/home/bmc/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/bmc/src/mystuff/sublime-text-2/sublime-text-hacks/plugins/parawrap.py",
+		"/home/bmc/src/mystuff/sublime-text-2/sublime-text-hacks/pavement.py",
+		"/home/bmc/.config/sublime-text-2/Packages/User/test.py",
+		"/home/bmc/.config/sublime-text-2/Packages/Default/Global.sublime-settings",
+		"/home/bmc/src/mystuff/sublime-text-2/sublime-text-hacks/README.md",
 		"/home/bmc/.config/sublime-text-2/Packages/User/Package Control.sublime-settings",
 		"/home/bmc/.config/sublime-text-2/Packages/Package Control/Package Control.sublime-settings",
 		"/home/bmc/.config/sublime-text-2/Packages/Default/transform.py",
 		"/home/bmc/.config/sublime-text-2/Packages/User/parawrap.py",
 		"/home/bmc/src/mystuff/java/jedit-emacs/jedit-emacs/Emacs_Fixup_Whitespace.bsh",
 		"/home/bmc/.config/sublime-text-2/Packages/User/test_plugin.py",
-		"/home/bmc/src/mystuff/sublime-text-2/sublime-text-hacks/plugins/EmacsLikeSyntaxSetter.py",
-		"/home/bmc/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
 		"/home/bmc/.config/sublime-text-2/Packages/User/Markdown.sublime-settings",
 		"/home/bmc/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
 		"/home/bmc/src/mystuff/python/grizzled-python/grizzled-python/grizzled/text/__init__.py",
@@ -168,7 +134,6 @@
 		"/home/bmc/src/mystuff/scala/argot/argot/src/main/scala/org/clapper/argot/exception.scala",
 		"/home/bmc/src/mystuff/ruby/grizzled-ruby/grizzled-ruby/lib/grizzled.rb",
 		"/home/bmc/src/mystuff/scala/argot/argot/src/main/scala/org/clapper/argot/Argot.scala",
-		"/home/bmc/.config/sublime-text-2/Packages/Default/Global.sublime-settings",
 		"/home/bmc/.config/sublime-text-2/Packages/User/JSON.sublime-settings"
 	],
 	"find":
@@ -226,11 +191,99 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "package-metadata.json",
+					"settings":
+					{
+						"buffer_size": 172,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23,
+								23
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Plugin-EmacsCommands.py",
+					"settings":
+					{
+						"buffer_size": 3466,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								31,
+								31
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "Plugin-EmacsLikeSyntaxSetter.py",
+					"settings":
+					{
+						"buffer_size": 5740,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								578,
+								578
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"file": "README.md",
 					"settings":
 					{
@@ -252,234 +305,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 765.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/bmc/.config/sublime-text-2/Packages/Default/Global.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 2630,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								324,
-								324
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/bmc/.config/sublime-text-2/Packages/User/test.py",
-					"settings":
-					{
-						"buffer_size": 531,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								531,
-								531
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "pavement.py",
-					"settings":
-					{
-						"buffer_size": 586,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								586,
-								586
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "package-metadata.json",
-					"settings":
-					{
-						"buffer_size": 137,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 2,
-			"sheets":
-			[
-				{
-					"buffer": 5,
-					"file": "plugins/parawrap.py",
-					"settings":
-					{
-						"buffer_size": 1030,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								621,
-								621
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/home/bmc/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
-					"settings":
-					{
-						"buffer_size": 5226,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1485,
-								1485
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 285.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "plugins/FixupWhitespace.py",
-					"settings":
-					{
-						"buffer_size": 2965,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								649,
-								649
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "plugins/EmacsLikeSyntaxSetter.py",
-					"settings":
-					{
-						"buffer_size": 5740,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4907,
-								4907
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1575.0,
+						"translation.y": 405.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
