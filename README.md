@@ -13,6 +13,61 @@ I use these files myself, but *caveat user*. If you use them, and they screw you
 
 ## Plugins
 
+### Installation
+
+There are several ways to install these plugins.
+
+NOTE: The plugins do _not_ install any key bindings by default. If you want to
+use my key bindings, see below.
+
+#### Via Package Control
+
+If you're using Will Bond's [Package Control][] (and you should be):
+
+First add this repository to your Package Control repo list. (This step won't
+be necessary once the repository is listed in the master Package Control
+repository list, which should be soon):
+
+Go to the *Preferences > Packages Settings > Package Control > Settings - User*
+menu. That will bring up `Package Control.sublime-settings` in a buffer. In the
+resulting buffer, make sure "repositories" contains "https://github.com/bmc
+/sublime-text-hacks". For instance, my file looks like this:
+
+    {
+      "auto_upgrade_last_run": 1322234232,
+      "repositories":
+      [
+        "https://github.com/bmc/sublime-text-hacks"
+      ]
+    }
+
+Then, pull up *Preferences > Package Control*, select
+*Package Control: Install Package*, and search for "hacks". It should point
+to this package, which you can then install.
+
+To upgrade the package, just use the Package Control package upgrade 
+capability.
+
+[Package Control]: http://wbond.net/sublime_packages/package_control
+
+#### Manually
+
+
+Go to your Sublime Text 2 `Packages` directory and clone the repository.
+For instance, on Linux:
+
+    $ cd ~/.config/sublime-text-2/Packages
+    $ git clone https://github.com/bmc/sublime-text-hacks
+
+On Mac OS X:
+
+    $ cd "$HOME/Library/Application Support/Sublime Text 2/Packages"
+    $ git clone https://github.com/bmc/sublime-text-hacks
+
+It might be necessary to restart the editor.
+
+To upgrade, just do a `git pull` within that directory.
+
 ### Paragraph Wrapping
 
 The stock Sublime Text 2 `wrap_width` setting controls both on-screen wrapping
@@ -119,61 +174,6 @@ If the plugin fails to honor your syntax setting, see the Python console
 (normally accessible via *Ctrl-`*). There may be a warning that's helpful.
 
 See below for installation instructions.
-
-### Plugin Installation
-
-There are several ways to install these plugins.
-
-NOTE: The plugins do _not_ install any key bindings by default. If you want to
-use my key bindings, see below.
-
-#### Via Package Control
-
-If you're using Will Bond's [Package Control][] (and you should be):
-
-First add this repository to your Package Control repo list. (This step won't
-be necessary once the repository is listed in the master Package Control
-repository list, which should be soon):
-
-Go to the *Preferences > Packages Settings > Package Control > Settings - User*
-menu. That will bring up `Package Control.sublime-settings` in a buffer. In the
-resulting buffer, make sure "repositories" contains "https://github.com/bmc
-/sublime-text-hacks". For instance, my file looks like this:
-
-    {
-      "auto_upgrade_last_run": 1322234232,
-      "repositories":
-      [
-        "https://github.com/bmc/sublime-text-hacks"
-      ]
-    }
-
-Then, pull up *Preferences > Package Control*, select
-*Package Control: Install Package*, and search for "hacks". It should point
-to this package, which you can then install.
-
-To upgrade the package, just use the Package Control package upgrade 
-capability.
-
-[Package Control]: http://wbond.net/sublime_packages/package_control
-
-#### Manually
-
-
-Go to your Sublime Text 2 `Packages` directory and clone the repository.
-For instance, on Linux:
-
-    $ cd ~/.config/sublime-text-2/Packages
-    $ git clone https://github.com/bmc/sublime-text-hacks
-
-On Mac OS X:
-
-    $ cd "$HOME/Library/Application Support/Sublime Text 2/Packages"
-    $ git clone https://github.com/bmc/sublime-text-hacks
-
-It might be necessary to restart the editor.
-
-To upgrade, just do a `git pull` within that directory.
 
 ## Key Bindings
 
