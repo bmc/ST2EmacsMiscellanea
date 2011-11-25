@@ -31,8 +31,7 @@ class FixupWhitespaceCommand(sublime_plugin.TextCommand):
         else:
             suffix_ws_region = None
 
-        # Now do the actual delete, using the Sublime Text standard
-        # edit block approach, which allows for undo.
+        # Now do the actual delete.
         if suffix_ws_region is not None:
             self.view.erase(edit, suffix_ws_region)
 
