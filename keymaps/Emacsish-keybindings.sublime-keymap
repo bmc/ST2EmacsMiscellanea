@@ -18,7 +18,8 @@
   { "keys": ["alt+z"], "command": "undo"}, // consistency with the Mac
   { "keys": ["alt+b"], "command": "move", "args": {"by": "words", "forward": false} },
   { "keys": ["alt+f"], "command": "move", "args": {"by": "word_ends", "forward": true} },
-  { "keys": ["ctrl+o"], "command": "insert", "args": {"characters": "\n"} },
+  //{ "keys": ["ctrl+o"], "command": "insert", "args": {"characters": "\n"} },
+  { "keys": ["ctrl+o"], "command": "emacs_open_line"},
   //{ "keys": ["ctrl+x"], "command": "none" },
   // Can't seem to rebind ctrl-I to TAB. So, to avoid problems, just map it to
   // nothing.
