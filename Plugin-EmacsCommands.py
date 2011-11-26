@@ -128,3 +128,15 @@ class WrapParagraphCommand(paragraph.WrapLinesCommand):
                 pass
 
         super(WrapParagraphCommand, self).run(edit, width)
+
+class RecenterTopBotton(sublime_plugin.TextCommand):
+    '''
+    Reposition the view so that the line containing the cursor is at the
+    center of the viewport, if possible. Unlike the corresponding Emacs
+    command, recenter-top-bottom, this command does not cycle through
+    scrolling positions. It always repositions the view the same way.
+
+    This command is frequently bound to Ctrl-l.
+    '''
+    def run(self):
+        self.view.show_at_center(self.view.sel()[0])

@@ -128,6 +128,20 @@ Emacs-y way:
 
     { "keys": ["ctrl+o"], "command": "emacs_open_line" },
 
+### Plugin: *recenter_in_view* command
+
+The `recenter_in_view` command repositions the view so that the line containing
+the cursor is at the center of the viewport, if possible. This command is
+similar to the [Emacs `recenter_top_bottom` command][], typically bound to
+*Ctrl-l* (i.e., *Control* + *lower-case L*). However, unlike the corresponding
+Emacs command, this command does not cycle through scrolling positions. It
+always repositions the view the same way, namely, so that the line containing
+the cursor is in the center of the viewport, top to bottom.
+
+My key bindings file (see below) binds this function to *Ctrl-l*.
+
+[Emacs `recenter_top_bottom` command]: http://www.gnu.org/s/libtool/manual/emacs/Scrolling.html#index-recenter_002dtop_002dbottom-450
+
 ### Plugin: Emacs-like Syntax Setter
 
 [GNU Emacs][] has a useful feature that allows an individual file to override
@@ -180,12 +194,30 @@ If the plugin fails to honor your syntax setting, see the Python console
 **Note**: This plugin isn't a command; it's an event handler. Installing these
 plugins automatically enables this particular plugin.
 
-## Key Bindings
+## Key and Mouse Bindings
+
+### Mouse Bindings
+
+The file `bindings/mousebindings.sublime-mousemaps` contains some mouse
+bindings I find useful. They may or may not be useful to you. If you want to
+use them, install them in your `Packages/User` directory. e.g.:
+
+Linux:
+
+    $ git clone https://github.com/bmc/sublime-text-hacks
+    $ cd sublime-text-hacks
+    $ cp bindings/mousebindings.sublime-mousemap ~/.config/sublime-text-2/Packages/User
+
+Mac OS X:
+
+    $ git clone https://github.com/bmc/sublime-text-hacks
+    $ cd sublime-text-hacks
+    $ cp bindings/mousebindings.sublime-mousemap "$HOME/Library/Application Support/Sublime Text 2/Packages/User"
 
 ### Emacs-ish Key Bindings
 
-The file `Emacsish-keybindings.sublime-keymap` provides various Emacs-like key
-bindings for Sublime Text 2.
+The file `bindings/Emacsish-keybindings.sublime-keymap` provides various Emacs-
+like key bindings for Sublime Text 2.
 
 #### Prerequisites
 
@@ -212,12 +244,12 @@ For instance, on Linux:
 
     $ git clone https://github.com/bmc/sublime-text-hacks
     $ cd sublime-text-hacks
-    $ cp keymaps/Emacsish-keybindings.sublime-keymap ~/.config/sublime-text-2/Packages/User
+    $ cp bindings/Emacsish-keybindings.sublime-keymap ~/.config/sublime-text-2/Packages/User
 
   If you've already installed the plugins, then you can simply get the
   key bindings from your `Package/sublime-text-hacks/keymaps` directory.
 
-#### Non-Standard Emacs Mappings
+#### Non-Standard Emacs Key Bindings
 
 * *Incremental Search* (not "regular search") is bound to *Ctrl-s*.
 * *Ctrl-r* is bound to *Reverse Incremental Search*.
