@@ -65,10 +65,11 @@ def cp(source, dest):
 
 def rm_f(path):
     print('+ rm -f %s' % path)
-    os.unlink(path)
+    if os.path.lexists(path):
+        os.unlink(path)
 
 def _get_sublime_dir(sublime_platform):
-    if sublime_platform == "Darwin":
+    if sublime_platform == "OSX":
         base = os.path.expanduser("~/Library/Application Support/Sublime Text 2")
     elif sublime_platform == "Windows":
         user = os.environ.get("USERNAME")
