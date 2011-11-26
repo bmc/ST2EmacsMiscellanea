@@ -138,5 +138,5 @@ class RecenterInView(sublime_plugin.TextCommand):
 
     This command is frequently bound to Ctrl-l.
     '''
-    def run(self):
+    def run(self, edit):
         self.view.show_at_center(self.view.sel()[0])
