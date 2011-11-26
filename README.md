@@ -227,29 +227,31 @@ prefer the more standard, Windows-like cut-and-paste semantics, see the
 `Emacsish-keybindings.sublime-keymap` file. You can comment out the kill ring
 mappings and uncomment the cut-and-paste mappings, instead.
 
-#### Installation
+### Installation
 
 There are two ways to install the key and mouse bindings: Via [Paver][]
 and manually.
 
 [Paver]: http://paver.github.com/paver/
 
-##### Via Paver
+#### Via Paver
 
 If you don't have [Paver][] installed, you can install it easily with:
 
-    pip install paver
+    $ pip install paver # sudo may be required on your system
 
-Once Paver is installed, just run this target to install both the key and
-mouse bindings:
+Once Paver is installed, you can use it to install the just key bindings,
+just the mouse bindings, or both:
 
-    paver installbindings
+    $ paver installkeybindings   # install just the key bindings
+    $ paver installmousebindings # install just the mouse bindings
+    $ paver installbindings      # install both key and mouse bindings
 
-**WARNING**: That target will removed your existing default bindings and
-replace them with the ones in this repository. It does _not_ back your bindings
+**WARNING**: These targets will removed your existing default bindings and
+replace them with the ones in this repository. They do _not_ back your bindings
 up first!
 
-##### Manually
+#### Manually
 
 To install these bindings manuall, check out this repository and copy the files
 to the appropriate `Package/Users` directory for your platform, as shown below:
