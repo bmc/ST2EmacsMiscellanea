@@ -129,7 +129,7 @@ class WrapParagraphCommand(paragraph.WrapLinesCommand):
 
         super(WrapParagraphCommand, self).run(edit, width)
 
-class RecenterTopBotton(sublime_plugin.TextCommand):
+class RecenterInView(sublime_plugin.TextCommand):
     '''
     Reposition the view so that the line containing the cursor is at the
     center of the viewport, if possible. Unlike the corresponding Emacs
