@@ -9,5 +9,3 @@ You'll find complete documentation on the [home page][].
 
 [home page]: http://software.clapper.org/sublime-text-hacks/
 [Sublime Text 2]: http://www.sublimetext.com/2
-
-
