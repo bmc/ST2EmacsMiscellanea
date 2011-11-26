@@ -35,7 +35,7 @@
 			"file": "Plugin-EmacsCommands.py",
 			"settings":
 			{
-				"buffer_size": 4466,
+				"buffer_size": 4938,
 				"line_ending": "Unix"
 			}
 		},
@@ -44,6 +44,14 @@
 			"settings":
 			{
 				"buffer_size": 111,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bindings/mousebindings.sublime-mousemap",
+			"settings":
+			{
+				"buffer_size": 104,
 				"line_ending": "Unix"
 			}
 		},
@@ -59,7 +67,15 @@
 			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 9177,
+				"buffer_size": 11052,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bindings/Emacsish-keybindings.sublime-keymap",
+			"settings":
+			{
+				"buffer_size": 5347,
 				"line_ending": "Unix"
 			}
 		}
@@ -72,7 +88,7 @@
 		[
 			[
 				"Package Control: ",
-				"Package Control: Upgrade Package"
+				"Package Control: Install Package"
 			],
 			[
 				":w",
@@ -96,6 +112,8 @@
 	},
 	"file_history":
 	[
+		"/home/bmc/src/mystuff/sublime-text-2/sublime-text-hacks/keymaps/Emacsish-keybindings.sublime-keymap",
+		"/home/bmc/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
 		"/home/bmc/src/mystuff/sublime-text-2/sublime-text-hacks/plugins/FixupWhitespace.py",
 		"/home/bmc/src/mystuff/sublime-text-2/sublime-text-hacks/plugins/EmacsLikeSyntaxSetter.py",
 		"/home/bmc/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
@@ -111,7 +129,6 @@
 		"/home/bmc/src/mystuff/java/jedit-emacs/jedit-emacs/Emacs_Fixup_Whitespace.bsh",
 		"/home/bmc/.config/sublime-text-2/Packages/User/test_plugin.py",
 		"/home/bmc/.config/sublime-text-2/Packages/User/Markdown.sublime-settings",
-		"/home/bmc/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
 		"/home/bmc/src/mystuff/python/grizzled-python/grizzled-python/grizzled/text/__init__.py",
 		"/home/bmc/src/mystuff/python/grizzled-python/grizzled-python/grizzled/misc.py",
 		"/home/bmc/src/mystuff/writing/sf-book/book.sublime-project",
@@ -161,6 +178,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"below",
 			"InsertCommand",
 			"whitespace",
 			"tab",
@@ -233,15 +251,15 @@
 					"file": "Plugin-EmacsCommands.py",
 					"settings":
 					{
-						"buffer_size": 4466,
+						"buffer_size": 4938,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3278,
-								3278
+								662,
+								662
 							]
 						],
 						"settings":
@@ -251,7 +269,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1292.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -281,15 +299,41 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "bindings/mousebindings.sublime-mousemap",
+					"settings":
+					{
+						"buffer_size": 104,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								104,
+								104
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "Plugin-EmacsLikeSyntaxSetter.py",
 					"settings":
 					{
@@ -311,25 +355,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 990.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "README.md",
 					"settings":
 					{
-						"buffer_size": 9177,
+						"buffer_size": 11052,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5032,
-								5032
+								7126,
+								7126
 							]
 						],
 						"settings":
@@ -339,7 +383,35 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1935.0,
+						"translation.y": 2927.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "bindings/Emacsish-keybindings.sublime-keymap",
+					"settings":
+					{
+						"buffer_size": 5347,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

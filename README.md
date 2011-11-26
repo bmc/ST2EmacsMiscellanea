@@ -229,12 +229,33 @@ mappings and uncomment the cut-and-paste mappings, instead.
 
 #### Installation
 
-To install these bindings as your default key bindings, check out this
-repository and copy the file to the appropriate directory for your platform, as
-shown below:
+There are two ways to install the key and mouse bindings: Via [Paver][]
+and manually.
 
-* Linux: `~/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap`
-* Mac: `/Users/bmc/Library/Application Support/Sublime Text 2/Packages/User\Default (OSX).sublime-keymap`
+[Paver]: http://paver.github.com/paver/
+
+##### Via Paver
+
+If you don't have [Paver][] installed, you can install it easily with:
+
+    pip install paver
+
+Once Paver is installed, just run this target to install both the key and
+mouse bindings:
+
+    paver installbindings
+
+**WARNING**: That target will removed your existing default bindings and
+replace them with the ones in this repository. It does _not_ back your bindings
+up first!
+
+##### Manually
+
+To install these bindings manuall, check out this repository and copy the files
+to the appropriate `Package/Users` directory for your platform, as shown below:
+
+* Linux: `~/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap
+* Mac: `/Users/bmc/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap`
 * Windows: `C:\Users\username\AppData\Roaming\Sublime Text 2\Packages\User\Default (Windows).sublime-keymap` 
   (**NOTE**: That's the path on *my* Windows 7 machine, with `username` 
   replaced by my user name, and using the non-portable version of 
@@ -246,8 +267,10 @@ For instance, on Linux:
     $ cd sublime-text-hacks
     $ cp bindings/Emacsish-keybindings.sublime-keymap ~/.config/sublime-text-2/Packages/User
 
-  If you've already installed the plugins, then you can simply get the
-  key bindings from your `Package/sublime-text-hacks/keymaps` directory.
+If you've already installed the plugins, then you can simply get the
+key bindings from your `Package/sublime-text-hacks/bindings` directory.
+
+Note that it's *much* easier just to use [Paver][].
 
 #### Non-Standard Emacs Key Bindings
 
