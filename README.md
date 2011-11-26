@@ -253,8 +253,9 @@ up first!
 
 #### Manually
 
-To install these bindings manuall, check out this repository and copy the files
-to the appropriate `Package/Users` directory for your platform, as shown below:
+To install these bindings manually, check out this repository and copy the
+files to the appropriate `Package/Users` directory for your platform, as shown
+below:
 
 * Linux: `~/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap
 * Mac: `/Users/bmc/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap`
