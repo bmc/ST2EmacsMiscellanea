@@ -35,8 +35,18 @@
 			"file": "Plugin-EmacsCommands.py",
 			"settings":
 			{
-				"buffer_size": 4938,
+				"buffer_size": 4944,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 3 files for \"view\"\n\n/home/bmc/src/mystuff/sublime-text-2/sublime-text-hacks/sublime-text-hacks/Plugin-EmacsCommands.py:\n   13      '''\n   14      def run(self, edit):\n   15:         sel = self.view.sel()\n   16          if (sel is None) or (len(sel) == 0):\n   17              return\n   18  \n   19          point = sel[0].end()\n   20:         self.view.insert(edit, point, '\\n')\n   21:         self.view.run_command('move', {'by': 'characters', 'forward': False})\n   22  \n   23  class FixupWhitespaceCommand(sublime_plugin.TextCommand):\n   ..\n   30  \n   31      def run(self, edit):\n   32:         sel = self.view.sel()\n   33          if (sel is None) or (len(sel) == 0):\n   34              return\n   ..\n   38          cursor_region = sel[0]\n   39          point = cursor_region.begin()\n   40:         line = self.view.line(point)\n   41:         cur = self.view.substr(point)\n   42:         prev = self.view.substr(point - 1) if point > line.begin() else u'\\x00'\n   43  \n   44          if prev.isspace():\n   ..\n   54          # Now do the actual delete.\n   55          if suffix_ws_region is not None:\n   56:             self.view.erase(edit, suffix_ws_region)\n   57  \n   58          if prefix_ws_region is not None:\n   59:             self.view.erase(edit, prefix_ws_region)\n   60  \n   61          # Make sure there's one blank left, unless:\n   ..\n   64          # b) the previous character is not a letter or digit, or\n   65          # c) we're at the beginning of the line\n   66:         point = self.view.sel()[0].begin()\n   67          bol = line.begin()\n   68          if point > bol:\n   ..\n   70                  return c.isdigit() or c.isalpha()\n   71  \n   72:             c = self.view.substr(point)\n   73:             c_prev = self.view.substr(point - 1)\n   74  \n   75              if letter_or_digit(c) and letter_or_digit(c_prev):\n   76:                 self.view.insert(edit, point, ' ')\n   77     \n   78      def _handle_prefix_whitespace(self, point, line):\n   79          p = point\n   80          p -= 1\n   81:         c = self.view.substr(p)\n   82          bol = line.begin()\n   83          while (p > bol) and c.isspace():\n   84              p -= 1\n   85:             c = self.view.substr(p)\n   86  \n   87          # \"point\" is now one character behind where we want it to be,\n   ..\n   95      def _handle_suffix_whitespace(self, point, line):\n   96          p = point\n   97:         c = self.view.substr(p)\n   98          bol = line.begin()\n   99          eol = line.end()\n  100          while (p <= eol) and (c.isspace()) and (not self._line_end(c)):\n  101              p += 1\n  102:             c = self.view.substr(p)\n  103          \n  104          # Return the region of white space.\n  ...\n  122      \"\"\"\n  123      def run(self, edit, width=0):\n  124:         if width == 0 and self.view.settings().get(\"wrap_paragraph\"):\n  125              try:\n  126:                 width = int(self.view.settings().get(\"wrap_paragraph\"))\n  127              except TypeError:\n  128                  pass\n  ...\n  130          super(WrapParagraphCommand, self).run(edit, width)\n  131  \n  132: class RecenterInView(sublime_plugin.TextCommand):\n  133      '''\n  134:     Reposition the view so that the line containing the cursor is at the\n  135:     center of the viewport, if possible. Unlike the corresponding Emacs\n  136      command, recenter-top-bottom, this command does not cycle through\n  137:     scrolling positions. It always repositions the view the same way.\n  138  \n  139      This command is frequently bound to Ctrl-l.\n  140      '''\n  141      def run(self):\n  142:         self.view.show_at_center(self.view.sel()[0])\n\n/home/bmc/src/mystuff/sublime-text-2/sublime-text-hacks/sublime-text-hacks/Plugin-EmacsLikeSyntaxSetter.py:\n   54                  self._syntaxes[emacs_syntax_name.lower()] = sublime_syntax_name\n   55  \n   56:     def on_activated(self, view):\n   57          '''\n   58:         Called when a view is activated (i.e., receives focus). That's a good\n   59          time to re-check the syntax setting.\n   60          '''\n   61:         self._check_syntax(view)\n   62              \n   63:     def on_load(self, view):\n   64          '''\n   65:         Called when a view is first loaded. Check the syntax setting then.\n   66          '''\n   67:         self._check_syntax(view)\n   68  \n   69:     def on_post_save(self, view):\n   70          '''\n   71          Called right after a save. Check the syntax then, in case it changed.\n   72          '''\n   73:         self._check_syntax(view)\n   74      \n   75:     def _check_syntax(self, view):\n   76          '''\n   77          Does the actual work of checking the syntax setting and changing it,\n   ..\n   79          '''\n   80          # Scan the buffer to find the embedded syntax setting, if one exists.\n   81:         buffer_syntax_value = self._find_emacs_syntax_value(view)\n   82          if buffer_syntax_value is not None:\n   83              # The buffer has a syntax setting. See if it maps to one of the\n   ..\n   86              if syntax is None:\n   87                  # The syntax value doesn't map to something Sublime groks\n   88:                 name = view.name() or view.file_name()\n   89                  print('WARNING: Unknown syntax value \"%s\" in file \"%s\".' %\n   90                         (buffer_syntax_value, name))\n   ..\n   92                  # It does. Is it different from the current syntax of the\n   93                  # buffer? If so, change the buffer's syntax setting.\n   94:                 if view.settings().get('syntax') != syntax:\n   95:                     view.set_syntax_file(syntax)\n   96  \n   97:     def _find_emacs_syntax_value(self, view):\n   98          '''\n   99          Finds the first blank line, searches it for a syntax/mode marker and,\n  ...\n  103          '''\n  104          # Must be somewhere in the first nonblank line.\n  105:         first_nonblank_line = self._first_nonblank_line(view)\n  106          syntax_expression = None\n  107:         name = view.name() or view.file_name()\n  108          if first_nonblank_line is not None:\n  109              m = self._syntax_re.search(first_nonblank_line)\n  ...\n  113          return syntax_expression\n  114  \n  115:     def _first_nonblank_line(self, view):\n  116          '''\n  117:         Finds the first non-blank line in the view, starting at the top,\n  118          and returns it.\n  119  \n  ...\n  123          # ever gets to the end of the buffer.\n  124          point = 0\n  125:         size = view.size()\n  126          result = None\n  127          while (result is None) and (point < size):\n  128              # Get the region associated with the line at the current point.\n  129:             region = view.line(point)\n  130              if region is None:\n  131                  # No region. Point is invalid. We're done.\n  ...\n  133  \n  134              # Extract the line itself.\n  135:             line = view.substr(region)\n  136              if len(line.strip()) > 0:\n  137                  # Non-empty line. We're done.\n\n48 matches across 2 files\n",
+			"settings":
+			{
+				"buffer_size": 7070,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
 			}
 		},
 		{
@@ -67,7 +77,7 @@
 			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 11052,
+				"buffer_size": 304,
 				"line_ending": "Unix"
 			}
 		},
@@ -88,7 +98,7 @@
 		[
 			[
 				"Package Control: ",
-				"Package Control: Install Package"
+				"Package Control: Upgrade Package"
 			],
 			[
 				":w",
@@ -167,9 +177,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 91.0,
 		"where_history":
 		[
+			"/home/bmc/src/mystuff/sublime-text-2/sublime-text-hacks/sublime-text-hacks,,*.py",
 			""
 		]
 	},
@@ -178,6 +189,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"view",
 			"below",
 			"InsertCommand",
 			"whitespace",
@@ -251,15 +263,15 @@
 					"file": "Plugin-EmacsCommands.py",
 					"settings":
 					{
-						"buffer_size": 4938,
+						"buffer_size": 4944,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								662,
-								662
+								4889,
+								4889
 							]
 						],
 						"settings":
@@ -269,13 +281,245 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1766.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
+					"settings":
+					{
+						"buffer_size": 7070,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										203,
+										207
+									],
+									[
+										356,
+										360
+									],
+									[
+										407,
+										411
+									],
+									[
+										617,
+										621
+									],
+									[
+										822,
+										826
+									],
+									[
+										865,
+										869
+									],
+									[
+										911,
+										915
+									],
+									[
+										1134,
+										1138
+									],
+									[
+										1249,
+										1253
+									],
+									[
+										1512,
+										1516
+									],
+									[
+										1698,
+										1702
+									],
+									[
+										1750,
+										1754
+									],
+									[
+										1879,
+										1883
+									],
+									[
+										2052,
+										2056
+									],
+									[
+										2203,
+										2207
+									],
+									[
+										2419,
+										2423
+									],
+									[
+										2633,
+										2637
+									],
+									[
+										2815,
+										2819
+									],
+									[
+										2918,
+										2922
+									],
+									[
+										3125,
+										3129
+									],
+									[
+										3200,
+										3204
+									],
+									[
+										3279,
+										3283
+									],
+									[
+										3468,
+										3472
+									],
+									[
+										3611,
+										3615
+									],
+									[
+										3636,
+										3640
+									],
+									[
+										3889,
+										3893
+									],
+									[
+										3944,
+										3948
+									],
+									[
+										4105,
+										4109
+									],
+									[
+										4160,
+										4164
+									],
+									[
+										4215,
+										4219
+									],
+									[
+										4321,
+										4325
+									],
+									[
+										4369,
+										4373
+									],
+									[
+										4533,
+										4537
+									],
+									[
+										4586,
+										4590
+									],
+									[
+										4873,
+										4877
+									],
+									[
+										5168,
+										5172
+									],
+									[
+										5183,
+										5187
+									],
+									[
+										5530,
+										5534
+									],
+									[
+										5598,
+										5602
+									],
+									[
+										5681,
+										5685
+									],
+									[
+										5943,
+										5947
+									],
+									[
+										6011,
+										6015
+									],
+									[
+										6026,
+										6030
+									],
+									[
+										6257,
+										6261
+									],
+									[
+										6336,
+										6340
+									],
+									[
+										6508,
+										6512
+									],
+									[
+										6718,
+										6722
+									],
+									[
+										6925,
+										6929
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								358,
+								358
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"file": "/home/bmc/.config/sublime-text-2/Packages/User/Package Control.sublime-settings",
 					"settings":
 					{
@@ -301,7 +545,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "bindings/mousebindings.sublime-mousemap",
 					"settings":
 					{
@@ -325,15 +569,9 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "Plugin-EmacsLikeSyntaxSetter.py",
 					"settings":
 					{
@@ -361,19 +599,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "README.md",
 					"settings":
 					{
-						"buffer_size": 11052,
+						"buffer_size": 304,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7126,
-								7126
+								151,
+								151
 							]
 						],
 						"settings":
@@ -383,13 +621,19 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2927.0,
+						"translation.y": 2.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "bindings/Emacsish-keybindings.sublime-keymap",
 					"settings":
 					{
@@ -400,8 +644,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								1854,
+								1854
 							]
 						],
 						"settings":
