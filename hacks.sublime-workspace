@@ -177,7 +177,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 91.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"/home/bmc/src/mystuff/sublime-text-2/sublime-text-hacks/sublime-text-hacks,,*.py",
@@ -229,7 +229,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -270,8 +270,8 @@
 						"selection":
 						[
 							[
-								4889,
-								4889
+								4810,
+								4810
 							]
 						],
 						"settings":
@@ -281,7 +281,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1766.0,
+						"translation.y": 1755.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -621,7 +621,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -644,8 +644,8 @@
 						"selection":
 						[
 							[
-								1854,
-								1854
+								0,
+								0
 							]
 						],
 						"settings":

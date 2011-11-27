@@ -1,3 +1,4 @@
+#                                                           -*- python -*-
 # Run through "paver" (http://paver.github.com/paver/).
 
 from paver.easy import *
@@ -13,13 +14,13 @@ PLATFORM_MAP = {
     "Linux"  : "Linux"
 }
 
-metadata = json.loads(''.join(open("package-metadata.json").readlines()))
+metadata = json.loads(''.join(open("metadata.json").readlines()))
 setup(
-    name         = "sublime-text-hacks",
+    name         = metadata['name'],
     version      = metadata['version'],
-    url          = 'https://github.com/bmc/sublime-text-hacks',
-    author       = 'Brian Clapper',
-    author_email = 'bmc@clapper.org'
+    url          = metadata['url'],
+    author       = metadata['author'],
+    author_email = metadata['email']
 )
 
 @task
