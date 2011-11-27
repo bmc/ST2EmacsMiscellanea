@@ -27,7 +27,7 @@
 			"file": "package-metadata.json",
 			"settings":
 			{
-				"buffer_size": 172,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -82,10 +82,26 @@
 			}
 		},
 		{
+			"file": "metadata.json",
+			"settings":
+			{
+				"buffer_size": 198,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "bindings/Emacsish-keybindings.sublime-keymap",
 			"settings":
 			{
 				"buffer_size": 5347,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Pavefile",
+			"settings":
+			{
+				"buffer_size": 2548,
 				"line_ending": "Unix"
 			}
 		}
@@ -229,7 +245,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -237,15 +253,15 @@
 					"file": "package-metadata.json",
 					"settings":
 					{
-						"buffer_size": 172,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								23,
-								23
+								0,
+								0
 							]
 						],
 						"settings":
@@ -610,8 +626,8 @@
 						"selection":
 						[
 							[
-								151,
-								151
+								304,
+								304
 							]
 						],
 						"settings":
@@ -625,15 +641,41 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "metadata.json",
+					"settings":
+					{
+						"buffer_size": 198,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "bindings/Emacsish-keybindings.sublime-keymap",
 					"settings":
 					{
@@ -652,6 +694,34 @@
 						{
 							"syntax": "Packages/JavaScript/JSON.tmLanguage",
 							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "Pavefile",
+					"settings":
+					{
+						"buffer_size": 2548,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								445,
+								445
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
