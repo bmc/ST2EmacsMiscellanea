@@ -9,12 +9,6 @@ import platform
 import os
 import shutil
 
-PLATFORM_MAP = {
-    "Darwin" : "OSX",
-    "Windows": "Windows",
-    "Linux"  : "Linux"
-}
-
 metadata = json.loads(''.join(open("metadata.json").readlines()))
 setup(
     name         = metadata['name'],
@@ -70,6 +64,19 @@ def rm_f(path):
     if os.path.lexists(path):
         os.unlink(path)
 
+def _map_platform(platform):
+    p = platform.lower()
+    if p == 'darwin':
+        result = 'OSX'
+    elif (p == "windows") or (p.startswith("cygwin")):
+        result = 'Windows'
+    elif p == 'linux':
+        result = "Linux"
+    else:
+        raise Exception("Unsupported Sublime platform: %s" % p)
+
+    return result
+
 def _get_sublime_dir(sublime_platform):
     if sublime_platform == "OSX":
         base = os.path.expanduser("~/Library/Application Support/Sublime Text 2")
@@ -81,7 +88,4 @@ def _get_sublime_dir(sublime_platform):
     return base
 
 def _get_sublime_platform():
-    sublime_platform = PLATFORM_MAP.get(platform.system(), None)
-    if sublime_platform is None:
-        raise Exception("Unknown platform: %s" % platform.system())
-    return sublime_platform
+    return _map_platform(platform.system())
