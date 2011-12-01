@@ -66,6 +66,14 @@
   //{ "keys": ["ctrl+k"], "command": "run_macro_file", "args": {"file": "Packages/Default/Delete to Hard EOL.sublime-macro"} },
 
   // ----------------------------------------------------------------------
+  // CTags plugin definitions
+  { "keys": ["alt+."], "command": "navigate_to_definition"},
+  // Unbind ctrl+t, ctrl+t. It conflicts with transpose.
+  { "keys": ["ctrl+t", "ctrl+t"], "command": "none" },
+  // Rebind ctrl+t again, to make sure it sticks.
+  { "keys": ["ctrl+t"], "command": "transpose" },
+
+  // ----------------------------------------------------------------------
   // Save Bindings
   //
   // Ctrl-X Ctrl-S is bound to Save. So is *Alt-S*.
@@ -99,6 +107,9 @@
   // ----------------------------------------------------------------------
   // Additional rebindings
   // Ctrl-P is used for line-up. Map Alt-G to "goto-anything".
-  { "keys": ["alt+g"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} }
+  { "keys": ["alt+g"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+
+  // Rebind go-to-text. Default Ctrl-R/Command-R binding already used.
+  { "keys": ["ctrl+alt+r"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} }
 ]
 
