@@ -68,8 +68,15 @@
   // ----------------------------------------------------------------------
   // CTags plugin definitions
   { "keys": ["alt+."], "command": "navigate_to_definition"},
-  // Unbind ctrl+t, ctrl+t. It conflicts with transpose.
+  // Similar to Emacs' pop-to-tag-mark
+  { "keys": ["alt+*"], "command": "jump_back"},
+  // Unbind the CTags key bindings. The Ctrl-T prefix conflits with 
+  // "transpose", and the shipped bindings don't properly fix it.
   { "keys": ["ctrl+t", "ctrl+t"], "command": "none" },
+  { "keys": ["ctrl+t", "ctrl+b"], "command": "none" },
+  { "keys": ["ctrl+t", "ctrl+m"], "command": "none" },
+  { "keys": ["ctrl+t", "ctrl+r"], "command": "none" },
+
   // Rebind ctrl+t again, to make sure it sticks.
   { "keys": ["ctrl+t"], "command": "transpose" },
 
