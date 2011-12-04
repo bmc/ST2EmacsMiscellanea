@@ -35,6 +35,10 @@
   // recenter_in_view is implemented as a plugin (one of mine)
   { "keys": ["ctrl+l"], "command": "recenter_in_view" },
 
+  // Comment toggling
+  { "keys": ["ctrl+3"], "command": "toggle_comment", "args": {"block": false} },
+  { "keys": ["shift+ctrl+3"], "command": "toggle_comment", "args": {"block": true} },
+
   // ----------------------------------------------------------------------
   // Wrap Paragraph: use a different plugin than the stock one.
   // Requires parawrap.py from https://github.com/bmc/sublime-text-hacks
