@@ -49,6 +49,11 @@
   { "keys": ["ctrl+alt+q"], "command": "exit"},
 
   // ----------------------------------------------------------------------
+  // Alternate binding for Will Bond's Alignment plugin.
+
+  { "keys": ["alt+a"], "command": "alignment" },
+
+  // ----------------------------------------------------------------------
   // Emacs Kill Ring Bindings
   //
   // Use these bindings with https://github.com/stiang/EmacsKillRing
