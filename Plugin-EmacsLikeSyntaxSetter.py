@@ -2,7 +2,15 @@ import sublime, sublime_plugin # -*- python -*-
 import re
 import os
 
-EMACS_SYNTAX_MARK_RE = r'-\*-\s*([^-]+)\s*-\*-'
+# Must contain a single group, for extracting the syntax name
+EMACS_SYNTAX_MARK_RE = r'-\*-\s*(.+)\s*-\*-'
+
+# Aliases for some of the syntax values.
+SYNTAX_ALIASES = {
+    'sh'    : 'shell-unix-generic',
+    'shell' : 'shell-unix-generic',
+    'bash'  : 'shell-unix-generic'
+}
 
 class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
     '''
@@ -110,7 +118,9 @@ class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
             if m is not None:
                 syntax_expression = m.group(1).strip()
 
-        return syntax_expression
+        # If it's in the aliases table, map it. Otherwise, default to using
+        # the value we just parsed.
+        return SYNTAX_ALIASES.get(syntax_expression, syntax_expression)
 
     def _first_nonblank_line(self, view):
         '''
