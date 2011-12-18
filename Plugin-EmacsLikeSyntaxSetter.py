@@ -9,7 +9,11 @@ EMACS_SYNTAX_MARK_RE = r'-\*-\s*(.+)\s*-\*-'
 SYNTAX_ALIASES = {
     'sh'    : 'shell-unix-generic',
     'shell' : 'shell-unix-generic',
-    'bash'  : 'shell-unix-generic'
+    'bash'  : 'shell-unix-generic',
+
+    # HAML and SASS depend on https://github.com/n00ge/sublime-text-haml-sass
+    'sass'  : 'ruby sass',
+    'haml'  : 'ruby haml'
 }
 
 class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
