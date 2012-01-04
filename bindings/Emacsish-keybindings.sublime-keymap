@@ -39,6 +39,9 @@
   { "keys": ["ctrl+3"], "command": "toggle_comment", "args": {"block": false} },
   { "keys": ["shift+ctrl+3"], "command": "toggle_comment", "args": {"block": true} },
 
+  // Consistency with Linux and Windows: Find all = Alt-F3 (Command-F3)
+  { "keys": ["super+f3"], "command": "find_all_under"},
+
   // ----------------------------------------------------------------------
   // Wrap Paragraph: use a different plugin than the stock one.
   // Requires parawrap.py from https://github.com/bmc/sublime-text-hacks
