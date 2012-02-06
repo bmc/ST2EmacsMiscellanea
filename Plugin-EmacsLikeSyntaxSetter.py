@@ -1,4 +1,4 @@
-import sublime, sublime_plugin # -*- python -*-
+import sublime, sublime_plugin
 import re
 import os
 
@@ -71,14 +71,14 @@ class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
         time to re-check the syntax setting.
         '''
         self._check_syntax(view)
-            
+
     def on_load(self, view):
         '''
         Called when a view is first loaded. Check the syntax setting then.
         '''
         self._check_syntax(view)
 
-    def on_post_save(self, view):
+    def on_pre_save(self, view):
         '''
         Called right after a save. Check the syntax then, in case it changed.
         '''
@@ -89,28 +89,33 @@ class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
         Does the actual work of checking the syntax setting and changing it,
         if necessary.
         '''
+        name = view.name() or view.file_name()
         # Scan the buffer to find the embedded syntax setting, if one exists.
         buffer_syntax_value = self._find_emacs_syntax_value(view)
+        print("EmacsLikeSyntaxSetter: buffer syntax = %s" % buffer_syntax_value)
         if buffer_syntax_value is None:
-            view.settings().set("sticky-syntax", False)
+            view.settings().erase("sticky-syntax")
         else:
             # The buffer has a syntax setting. See if it maps to one of the
             # known ones.
             syntax = self._syntaxes.get(buffer_syntax_value.lower(), None)
             if syntax is None:
                 # The syntax value doesn't map to something Sublime groks
-                name = view.name() or view.file_name()
                 print('WARNING: Unknown syntax value "%s" in file "%s".' %
                        (buffer_syntax_value, name))
+                view.settings().erase("sticky-syntax")
             else:
                 # It does. Is it different from the current syntax of the
                 # buffer? If so, change the buffer's syntax setting.
                 if view.settings().get('syntax') != syntax:
+                    print("EmacsLikeSyntaxSetter: %s: %s" % (name, syntax))
                     view.set_syntax_file(syntax)
                     # Use the view's settings object to set a 'sticky-syntax'
                     # setting, which will prevent my other plugin from
                     # overwriting this value.
                     view.settings().set("sticky-syntax", True)
+                else:
+                    view.settings().erase("sticky-syntax")
 
     def _find_emacs_syntax_value(self, view):
         '''
