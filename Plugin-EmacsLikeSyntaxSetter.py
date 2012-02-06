@@ -91,7 +91,9 @@ class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
         '''
         # Scan the buffer to find the embedded syntax setting, if one exists.
         buffer_syntax_value = self._find_emacs_syntax_value(view)
-        if buffer_syntax_value is not None:
+        if buffer_syntax_value is None:
+            view.settings().set("sticky-syntax", False)
+        else:
             # The buffer has a syntax setting. See if it maps to one of the
             # known ones.
             syntax = self._syntaxes.get(buffer_syntax_value.lower(), None)
