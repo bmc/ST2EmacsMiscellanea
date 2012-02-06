@@ -105,6 +105,10 @@ class EmacsLikeSyntaxSetter(sublime_plugin.EventListener):
                 # buffer? If so, change the buffer's syntax setting.
                 if view.settings().get('syntax') != syntax:
                     view.set_syntax_file(syntax)
+                    # Use the view's settings object to set a 'sticky-syntax'
+                    # setting, which will prevent my other plugin from
+                    # overwriting this value.
+                    view.settings().set("sticky-syntax", True)
 
     def _find_emacs_syntax_value(self, view):
         '''
