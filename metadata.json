@@ -1,6 +1,5 @@
 {
-    "name"   : "Sublime Text 2 Hacks",
-    "version": "0.2",
+    "name"   : "Miscellaneous Emacs Commands",
     "url"    : "http://software.clapper.org/ST2EmacsMiscellanea/",
     "author" : "Brian M. Clapper",
     "email"  : "bmc@clapper.org"
