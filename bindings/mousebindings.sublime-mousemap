@@ -1,6 +1,0 @@
-[
-    {
-        "button": "button1", "modifiers": ["shift"],
-        "command": "emacs_set_mark"
-    }
-]
