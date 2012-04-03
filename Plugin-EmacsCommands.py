@@ -39,21 +39,6 @@ import re
 import comment
 import paragraph
 
-class EmacsOpenLineCommand(sublime_plugin.TextCommand):
-    '''
-    Emacs-style 'open-line' command: Inserts a newline at the current
-    cursor position, without moving the cursor like Sublime's insert
-    command does.
-    '''
-    def run(self, edit):
-        sel = self.view.sel()
-        if (sel is None) or (len(sel) == 0):
-            return
-
-        point = sel[0].end()
-        self.view.insert(edit, point, '\n')
-        self.view.run_command('move', {'by': 'characters', 'forward': False})
-
 class FixupWhitespaceCommand(sublime_plugin.TextCommand):
     '''
     FixupWhitespaceCommand is a Sublime Text 2 plugin command that emulates
@@ -140,37 +125,3 @@ class FixupWhitespaceCommand(sublime_plugin.TextCommand):
 
     def _line_end(self, c):
         return (c in ["\r", "\n", u'\x00'])
-
-class WrapParagraphCommand(paragraph.WrapLinesCommand):
-    """
-    The Sublime "wrap_width" setting controls both on-screen wrapping and
-    the column at which the WrapLinesCommand folds lines. Those two
-    settings should be different; otherwise, things don't look right
-    on the screen. This plugin looks for a "wrap_paragraph" setting and,
-    if found, uses that value to override the value of "wrap_width". Then,
-    it invokes the stock SublimeText "wrap_lines" command.
-
-    Bind "wrap_paragraph" to a key to use this command.
-
-    See related bug report: http://sublimetext.userecho.com/topic/82731-/
-    """
-    def run(self, edit, width=0):
-        if width == 0 and self.view.settings().get("wrap_paragraph"):
-            try:
-                width = int(self.view.settings().get("wrap_paragraph"))
-            except TypeError:
-                pass
-
-        super(WrapParagraphCommand, self).run(edit, width)
-
-class RecenterInView(sublime_plugin.TextCommand):
-    '''
-    Reposition the view so that the line containing the cursor is at the
-    center of the viewport, if possible. Unlike the corresponding Emacs
-    command, recenter-top-bottom, this command does not cycle through
-    scrolling positions. It always repositions the view the same way.
-
-    This command is frequently bound to Ctrl-l.
-    '''
-    def run(self, edit):
-        self.view.show_at_center(self.view.sel()[0])
