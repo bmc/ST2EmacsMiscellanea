@@ -8,6 +8,7 @@ import json
 import platform
 import os
 import shutil
+from glob import glob
 
 metadata = json.loads(''.join(open("metadata.json").readlines()))
 setup(
@@ -19,38 +20,15 @@ setup(
 )
 
 @task
-@needs('installmousebindings', 'installkeybindings')
-def installbindings():
-    """Install the key and mouse bindings"""
-    pass
-
-@task
-def installkeybindings():
-    """Install the key bindings"""
+def install():
+    """Install the plugin code"""
     sublime_platform = _get_sublime_platform()
     base = _get_sublime_dir(sublime_platform)
-    target_dir = os.path.join(base, 'Packages', 'User')
-
-    keybindings_target = os.path.join(
-        target_dir, "Default (%s).sublime-keymap" % sublime_platform
-    )
-
-    rm_f(keybindings_target)
-    cp("bindings/Emacsish-keybindings.sublime-keymap", keybindings_target)
-
-@task
-def installmousebindings():
-    """Install the mouse bindings"""
-    sublime_platform = _get_sublime_platform()
-    base = _get_sublime_dir(sublime_platform)
-    target_dir = os.path.join(base, 'Packages', 'User')
-
-    mousebindings_target = os.path.join(
-        target_dir, "Default (%s).sublime-mousemap" % sublime_platform
-    )
-
-    rm_f(mousebindings_target)
-    cp("bindings/mousebindings.sublime-mousemap", mousebindings_target)
+    target_dir = os.path.join(base, 'Packages', 'ST2EmacsMiscellanea')
+    if not os.path.exists(target_dir):
+        os.mkdir(target_dir)
+    for f in glob('*.py'):
+        cp(f, os.path.join(target_dir, f))
 
 def cp(source, dest):
     if not os.path.exists(source):

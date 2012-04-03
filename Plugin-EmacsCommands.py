@@ -45,6 +45,8 @@ class FixupWhitespaceCommand(sublime_plugin.TextCommand):
     the Emacs (fixup-whitespace) command: It collapses white space behind
     and ahead of the cursor, leaving just one space. For compatibility with
     Emacs, if the cursor is in the first column, this plugin leaves no spaces.
+    Also for compatibility with Emacs, if the character at point is not a
+    white space character, insert one.
     '''
 
     def run(self, edit):
@@ -70,30 +72,34 @@ class FixupWhitespaceCommand(sublime_plugin.TextCommand):
         else:
             suffix_ws_region = None
 
-        # Now do the actual delete.
-        if suffix_ws_region is not None:
-            self.view.erase(edit, suffix_ws_region)
+        if (suffix_ws_region is None) and (prefix_ws_region is None):
+            # We're not on white space. Insert a blank.
+            self.view.insert(edit, point, ' ')
+        else:
+            # Now do the actual delete.
+            if suffix_ws_region is not None:
+                self.view.erase(edit, suffix_ws_region)
 
-        if prefix_ws_region is not None:
-            self.view.erase(edit, prefix_ws_region)
+            if prefix_ws_region is not None:
+                self.view.erase(edit, prefix_ws_region)
 
-        # Make sure there's one blank left, unless:
-        #
-        # a) the next character is not a letter or digit, or
-        # b) the previous character is not a letter or digit, or
-        # c) we're at the beginning of the line
-        point = self.view.sel()[0].begin()
-        bol = line.begin()
-        if point > bol:
-            def letter_or_digit(c):
-                return c.isdigit() or c.isalpha()
+            # Make sure there's one blank left, unless:
+            #
+            # a) the next character is not a letter or digit, or
+            # b) the previous character is not a letter or digit, or
+            # c) we're at the beginning of the line
+            point = self.view.sel()[0].begin()
+            bol = line.begin()
+            if point > bol:
+                def letter_or_digit(c):
+                    return c.isdigit() or c.isalpha()
 
-            c = self.view.substr(point)
-            c_prev = self.view.substr(point - 1)
+                c = self.view.substr(point)
+                c_prev = self.view.substr(point - 1)
 
-            if letter_or_digit(c) and letter_or_digit(c_prev):
-                self.view.insert(edit, point, ' ')
-   
+                if letter_or_digit(c) or letter_or_digit(c_prev):
+                    self.view.insert(edit, point, ' ')
+       
     def _handle_prefix_whitespace(self, point, line):
         p = point
         p -= 1
