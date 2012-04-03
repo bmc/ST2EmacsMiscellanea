@@ -129,6 +129,11 @@
   { "keys": ["alt+g"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
 
   // Rebind go-to-text. Default Ctrl-R/Command-R binding already used.
-  { "keys": ["ctrl+alt+r"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} }
-]
+  { "keys": ["ctrl+alt+r"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
 
+  // These bindings screw me up. They default to switching tabs.
+
+  { "keys": ["ctrl+tab"], "command": "none" },
+  { "keys": ["ctrl+shift+tab"], "command": "none" }
+
+]
