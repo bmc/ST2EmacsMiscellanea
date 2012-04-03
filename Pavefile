@@ -27,6 +27,11 @@ def install():
     target_dir = os.path.join(base, 'Packages', 'ST2EmacsMiscellanea')
     if not os.path.exists(target_dir):
         os.mkdir(target_dir)
+
+    to_rm = map(lambda e: os.path.join(target_dir, e), os.listdir(target_dir))
+    for f in filter(lambda e: os.path.isfile(e), to_rm):
+        rm_f(os.path.join(target_dir, f))
+
     for f in glob('*.py'):
         cp(f, os.path.join(target_dir, f))
 

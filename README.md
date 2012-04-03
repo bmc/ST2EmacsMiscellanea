@@ -1,11 +1,6 @@
-# Some Sublime Text 2 Stuff
+**NOTE** This repo is dead. The code has been integrated into the
+[sublemacspro](https://github.com/grundprinzip/sublemacspro) repository.
+The keymaps have been moved to my 
+[sublime-text-hacks](https://github.com/bmc/sublime-text-hacks) repository.
 
-## Intro
-
-This repo contains various hacks (keymaps, plugins, etc.) for the
-[Sublime Text 2][] text editor.
-
-You'll find complete documentation on the [home page][].
-
-[home page]: http://software.clapper.org/ST2EmacsMiscellanea/
-[Sublime Text 2]: http://www.sublimetext.com/2
+This repository will be deleted in the near future.
